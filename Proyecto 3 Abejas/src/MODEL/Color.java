@@ -3,9 +3,10 @@ package MODEL;
 public enum Color {
     Negro,
     Blanco,
-    Rojo,
     Verde,
     Azul,
+    Rojo,
     Amarillo,
-    Anaranjado
+    Morado,
+    Cian
 }
