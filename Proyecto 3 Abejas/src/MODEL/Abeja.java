@@ -9,6 +9,8 @@ public class Abeja {
     private Direccion direccionFav;
     private Busqueda busqueda;
     private ArrayList<String> polen = new ArrayList<>();
+    private float kilometraje=0;
+    private float puntaje;
 
     public Abeja(){}
 
@@ -42,5 +44,21 @@ public class Abeja {
 
     public void setPolen(ArrayList<String> polen) {
         this.polen = polen;
+    }
+
+    public float getkilometraje() {
+        return kilometraje;
+    }
+
+    public void setkilometraje(float kl) {
+        this.kilometraje = kl;
+    }
+
+    public float getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(float kl) {
+        this.puntaje = kl;
     }
 }
