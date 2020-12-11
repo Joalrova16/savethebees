@@ -12,12 +12,11 @@ public class Abeja {
     private Flor flor;
     private Direccion direccionFav;
     private Busqueda busqueda;
-<<<<<<< HEAD
-    private ArrayList<String> polen = new ArrayList<>();
+
+    private ArrayList<String> polen;
     private float kilometraje=0;
     private float puntaje;
-=======
-    private int polen;
+
     private ArrayList<ArrayList<Integer>> codigos;
     private ArrayList<Direccion> direcciones;
 
@@ -26,7 +25,7 @@ public class Abeja {
         this.flor = new Flor();
         this.direccionFav = Direccion.Este;
         this.busqueda = new Busqueda();
-        this.polen = 0;
+        this.polen = new ArrayList<>();
         setDirecciones();
         setCodigos();
     }
@@ -36,7 +35,14 @@ public class Abeja {
     public ArrayList<ArrayList<Integer>> getCodigos() {
         return codigos;
     }
->>>>>>> Cruces
+
+    public ArrayList<String> getPolen() {
+        return polen;
+    }
+
+    public void setPolen(ArrayList<String> polen) {
+        this.polen = polen;
+    }
 
     public void setCodigos() {
         /**
@@ -91,15 +97,6 @@ public class Abeja {
         this.busqueda = busqueda;
     }
 
-    public int getPolen() {
-        return polen;
-    }
-
-    public void setPolen(int polen) {
-        this.polen = polen;
-    }
-
-<<<<<<< HEAD
     public float getkilometraje() {
         return kilometraje;
     }
@@ -115,7 +112,7 @@ public class Abeja {
     public void setPuntaje(float kl) {
         this.puntaje = kl;
     }
-=======
+
     //Funciones de la abeja
     public ArrayList<Integer> codigoDireccion(Direccion direccion){
         /**
@@ -144,6 +141,4 @@ public class Abeja {
         System.out.println("->Busqueda:\n   *Angulo:" + this.busqueda.getAnguloDesviacion() + "\n   *Distancia: " + this.busqueda.getDistanciaMaxima() + "\n    *Recorrido:\n       --Orden:" + this.busqueda.getRecorrido().getOrden() + "\n       --Punto inicio: " + this.busqueda.getRecorrido().isPuntoInicio());
     }
 
-
->>>>>>> Cruces
 }
