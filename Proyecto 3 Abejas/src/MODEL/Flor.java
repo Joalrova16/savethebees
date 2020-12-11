@@ -1,10 +1,7 @@
 package MODEL;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Flor {
 
@@ -12,17 +9,28 @@ public class Flor {
     private Color color;
     private ArrayList<Integer> punto = new ArrayList<>();
     private ArrayList<ArrayList<Integer>> codigos = new ArrayList<>();
-    private ArrayList<Color> colores = new ArrayList<>();
+    private ArrayList<Color> coloresEnum = new ArrayList<>();
+    private ArrayList<Color> polen;
 
     //Constructor
     public Flor() {
         this.color = Color.Amarillo;
         this.punto = new ArrayList<>(Arrays.asList(0,0));
+        this.polen = new ArrayList<>();
         setCodigos();
         setColores();
     }
 
     //Setters y getters
+
+
+    public ArrayList<Color> getPolen() {
+        return polen;
+    }
+
+    public void setPolen(ArrayList<Color> polen) {
+        this.polen = polen;
+    }
 
     public ArrayList<ArrayList<Integer>> getCodigos() {
         return codigos;
@@ -50,11 +58,11 @@ public class Flor {
     }
 
     public ArrayList<Color> getColores() {
-        return colores;
+        return coloresEnum;
     }
 
     public void setColores() {
-        this.colores = new ArrayList<>(Arrays.asList(Color.values()));
+        this.coloresEnum = new ArrayList<>(Arrays.asList(Color.values()));
     }
 
     public Color getColor() {
@@ -82,7 +90,7 @@ public class Flor {
          * Retorna una lista que corresponde al código binario del color
          * */
 
-        return codigos.get(colores.indexOf(color));
+        return codigos.get(coloresEnum.indexOf(color));
     }
 
     public Color decodificarColor (ArrayList<Integer> codigo){
@@ -92,7 +100,7 @@ public class Flor {
          * Retorna un Color
          * */
 
-        return colores.get(codigos.indexOf(codigo));
+        return coloresEnum.get(codigos.indexOf(codigo));
     }
 
 }
