@@ -4,6 +4,7 @@ import MODEL.Arco;
 import java.util.ArrayList;
 import java.util.List;
 public class ControllerNaturaleza {
+<<<<<<< HEAD
     private List<Abeja> Panal;
     final float KmXPolen=10;
     /*
@@ -46,4 +47,9 @@ public class ControllerNaturaleza {
 
 
     }
+=======
+
+    public ControllerNaturaleza(){}
+
+>>>>>>> Cruces
 }

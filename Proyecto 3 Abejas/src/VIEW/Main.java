@@ -5,14 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Fxmls/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("Fxmls/venPrincipal.fxml"));
+        primaryStage.setTitle("EVOLUCIÓN");
+        primaryStage.initStyle( StageStyle.TRANSPARENT);
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

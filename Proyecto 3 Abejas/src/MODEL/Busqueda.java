@@ -1,27 +1,39 @@
 package MODEL;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class Busqueda {
 
-    private float anguloDesviacion;
-    private float distanciaMaxima;
-    private Recorrido recorrido;
+    //Atributos de la clase
+    private int anguloDesviacion; //listo
+    private int distanciaMaxima;//listo
+    private Recorrido recorrido;//listo
 
+    //Contructor
     public Busqueda() {
+        this.anguloDesviacion = 0;
+        this.distanciaMaxima = 0;
+        this.recorrido = new Recorrido();
     }
 
-    public float getAnguloDesviacion() {
+    //Setters y getters
+
+    public int getAnguloDesviacion() {
         return anguloDesviacion;
     }
 
-    public void setAnguloDesviacion(float anguloDesviacion) {
+    public void setAnguloDesviacion(int anguloDesviacion) {
         this.anguloDesviacion = anguloDesviacion;
     }
 
-    public float getDistanciaMaxima() {
+    public int getDistanciaMaxima() {
         return distanciaMaxima;
     }
 
-    public void setDistanciaMaxima(float distanciaMaxima) {
+    public void setDistanciaMaxima(int distanciaMaxima) {
         this.distanciaMaxima = distanciaMaxima;
     }
 
@@ -32,4 +44,5 @@ public class Busqueda {
     public void setRecorrido(Recorrido recorrido) {
         this.recorrido = recorrido;
     }
+
 }
