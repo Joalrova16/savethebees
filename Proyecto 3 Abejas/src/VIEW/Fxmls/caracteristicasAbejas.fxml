@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="caractAbeja" prefHeight="595.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.ControllerView">
+   <children>
+      <ImageView fitHeight="612.0" fitWidth="1060.0" layoutX="-25.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/fondoAbejas.gif" />
+         </image>
+         <effect>
+            <BoxBlur height="17.44" iterations="2" width="17.44">
+               <input>
+                  <ColorAdjust brightness="0.51" contrast="-0.2" />
+               </input></BoxBlur>
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="248.0" layoutX="386.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/captionAbeja.png" />
+         </image>
+         <effect>
+            <Lighting diffuseConstant="1.22" specularConstant="0.59" specularExponent="19.51" surfaceScale="1.26">
+               <bumpInput>
+                  <Shadow color="#b94343" height="36.55" radius="20.1075" width="45.88" />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </ImageView>
+      <ComboBox fx:id="abejasGenCB" disable="true" layoutX="68.0" layoutY="386.0" prefHeight="32.0" prefWidth="186.0" style="-fx-background-color: TOMATO;">
+         <effect>
+            <DropShadow color="#0cb244" height="39.66" radius="15.442499999999999" width="24.11" />
+         </effect></ComboBox>
+      <Label layoutX="35.0" layoutY="335.0" text="Seleccione una abeja">
+         <font>
+            <Font name="Ravie" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="verAbGenB" disable="true" layoutX="92.0" layoutY="446.0" mnemonicParsing="false" onAction="#caracteristicas" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: MEDIUMSEAGREEN;" text="VER" textFill="#e80606">
+         <font>
+            <Font name="Ravie" size="20.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="1.15" specularConstant="0.37" specularExponent="15.61">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Pane fx:id="caracteristicas" layoutX="305.0" layoutY="75.0" prefHeight="506.0" prefWidth="683.0" visible="false">
+         <children>
+            <Label fx:id="padreL" layoutX="367.0" layoutY="76.0" text="Abeja 3" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="341.0" layoutY="59.0" startX="-100.0" stroke="RED" strokeWidth="5.0" />
+            <Line endX="-40.0" fill="#00b93a" layoutX="533.0" layoutY="318.0" startX="-100.0" stroke="#078d24" strokeWidth="3.0" />
+            <Line endX="-40.0" fill="#ff0404" layoutX="533.0" layoutY="270.0" startX="-100.0" stroke="RED" strokeWidth="3.0" />
+            <Line endX="-40.0" fill="#05ff5e" layoutX="533.0" layoutY="366.0" startX="-100.0" stroke="#ff0202" strokeWidth="3.0" />
+            <Line endX="-40.0" fill="#05ff5e" layoutX="533.0" layoutY="411.0" startX="-100.0" stroke="#078d24" strokeWidth="3.0" />
+            <Line endX="-40.0" fill="#ff0404" layoutX="535.0" layoutY="454.0" startX="-100.0" stroke="#078d24" strokeWidth="3.0" />
+            <Label fx:id="ordenL" layoutX="547.0" layoutY="439.0" text="Random" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="piL" layoutX="554.0" layoutY="396.0" text="Lejos" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="distL" layoutX="553.0" layoutY="351.0" text="10 km" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="anguL" layoutX="545.0" layoutY="303.0" text="10 grados" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="direccL" layoutX="541.0" layoutY="255.0" text="NORTE" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="566.0" layoutY="152.0" startX="-100.0" stroke="RED" strokeWidth="5.0" />
+            <Label layoutX="385.0" layoutY="207.0" text="Busqueda">
+               <font>
+                  <Font name="Ravie" size="25.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="455.0" layoutY="240.0" startX="-100.0" stroke="#078d24" strokeWidth="5.0" />
+            <Label layoutX="533.0" layoutY="119.0" text="Flor">
+               <font>
+                  <Font name="Ravie" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="adaptabilidadL" layoutX="550.0" layoutY="76.0" text="10%" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="341.0" layoutY="152.0" startX="-100.0" stroke="#078d24" strokeWidth="5.0" />
+            <Label fx:id="cromoL" layoutX="234.0" layoutY="164.0" text="0000000000000000000000" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="madreL" layoutX="266.0" layoutY="76.0" text="Abeja 5" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="566.0" layoutY="60.0" startX="-100.0" stroke="#078d24" strokeWidth="5.0" />
+            <Label layoutX="239.0" layoutY="441.0" text="Orden">
+               <font>
+                  <Font name="Harrington" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="234.0" layoutY="398.0" text="Punto de inicio">
+               <font>
+                  <Font name="Harrington" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="234.0" layoutY="353.0" text="Distancia máxima">
+               <font>
+                  <Font name="Harrington" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="234.0" layoutY="305.0" text="Ángulo de desviación">
+               <font>
+                  <Font name="Harrington" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="234.0" layoutY="257.0" text="Direccion favorita">
+               <font>
+                  <Font name="Harrington" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="colorL" layoutX="553.0" layoutY="164.0" text="Rojo" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="471.0" layoutY="31.0" text="Adaptabilidad">
+               <font>
+                  <Font name="Ravie" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="258.0" layoutY="122.0" text="Cromosomas">
+               <font>
+                  <Font name="Ravie" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="294.0" layoutY="28.0" text="Padres">
+               <font>
+                  <Font name="Ravie" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="126.0" fitWidth="260.0" layoutX="-37.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/flecha.png" />
+               </image>
+               <effect>
+                  <Lighting diffuseConstant="1.15" specularConstant="0.59" specularExponent="17.07" surfaceScale="2.6">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#cdc7c7" />
+                     </light>
+                  </Lighting>
+               </effect></ImageView>
+            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="129.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" rotate="-33.7">
+               <image>
+                  <Image url="@../Images/abejaNav.png" />
+               </image>
+               <effect>
+                  <Reflection />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="37.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true" rotate="-41.6">
+               <image>
+                  <Image url="@../Images/abejaNav.png" />
+               </image>
+               <effect>
+                  <Reflection />
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="21.0" layoutY="127.0" text="Seleccione una generación">
+         <font>
+            <Font name="Ravie" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="74.0" layoutY="168.0" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: DARKSEAGREEN;">
+         <effect>
+            <DropShadow color="#833a3a" height="30.33" radius="8.445" width="5.45" />
+         </effect></ComboBox>
+      <Button layoutX="76.0" layoutY="219.0" mnemonicParsing="false" onAction="#selecAbeja" prefHeight="23.0" prefWidth="186.0" style="-fx-background-color: TOMATO;" text="SELECCIONAR" textFill="#00573c">
+         <font>
+            <Font name="Ravie" size="15.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="1.24" specularConstant="0.62" specularExponent="10.24">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#ffdddd" />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <Line endX="100.0" layoutX="173.0" layoutY="284.0" startX="-100.0" stroke="RED" strokeWidth="5.0" />
+      <Line endX="50.0" layoutX="185.0" layoutY="308.0" startX="-100.0" stroke="#089754" strokeWidth="3.0" />
+      <ImageView fitHeight="46.0" fitWidth="56.0" layoutX="954.0" layoutY="14.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/salir.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="949.0" layoutY="45.0" onMouseClicked="#cerrar" text="SALIR" textFill="#eb0f0f">
+         <font>
+            <Font name="Ravie" size="15.0" />
+         </font>
+      </Label>
+      <Pane fx:id="panal" layoutX="403.0" layoutY="120.0" prefHeight="416.0" prefWidth="559.0">
+         <children>
+            <ImageView fitHeight="371.0" fitWidth="407.0" layoutX="69.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/panalAb.png" />
+               </image>
+               <effect>
+                  <DropShadow color="#23a15e" height="39.66" radius="29.4375" spread="0.18" width="80.09" />
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="56.0" fitWidth="119.0" layoutX="21.0" layoutY="511.0" onMouseClicked="#atrasAbejas" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/atras.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="16.0" layoutY="555.0" text="Atrás" textFill="#0f8a44">
+         <font>
+            <Font name="Ravie" size="17.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

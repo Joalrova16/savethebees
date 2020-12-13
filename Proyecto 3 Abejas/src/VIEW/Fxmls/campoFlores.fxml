@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="campoFlores" prefHeight="956.0" prefWidth="1593.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.ControllerView">
+   <children>
+      <Button layoutX="1552.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrar" text="x" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3cdd06" height="773.0" layoutX="16.0" layoutY="129.0" stroke="#ee0000" strokeType="INSIDE" strokeWidth="3.0" width="1560.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="129.0" />
+      <Label layoutX="680.0" layoutY="14.0" text="Campo flores">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="601.0" layoutY="911.0" mnemonicParsing="false" onAction="#anterioresGen" text="ANTERIOR" />
+      <Button layoutX="847.0" layoutY="911.0" mnemonicParsing="false" onAction="#siguienteGen" text="SIGUIENTE" />
+      <Label layoutX="691.0" layoutY="68.0" text="Generacion #">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="numGenCFL" layoutX="825.0" layoutY="68.0" text="0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="1501.0" layoutY="911.0" mnemonicParsing="false" onAction="#atrasCampo" text="ATRÁS" />
+      <ImageView fx:id="panelV" fitHeight="31.0" fitWidth="65.0" layoutX="764.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/panal.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
