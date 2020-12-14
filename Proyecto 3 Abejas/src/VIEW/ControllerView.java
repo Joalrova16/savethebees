@@ -115,7 +115,7 @@ public class ControllerView {
     }
 
     @FXML
-    void atrasCampo(ActionEvent event){
+    void atrasCampo(MouseEvent event){
         Node source = (Node) event.getSource();
         Stage stageActual = (Stage) source.getScene().getWindow();
         stageActual.close();
@@ -189,8 +189,8 @@ public class ControllerView {
                     Rectangle rectangle = new Rectangle(15, 15);
                     rectangle.setX(x);
                     rectangle.setY(y);
-                    rectangle.setStroke(Color.rgb(0,255,0));
-                    rectangle.setFill(Color.rgb(0,100,0));
+                    rectangle.setStroke(Color.rgb(37,180,3));
+                    rectangle.setFill(Color.rgb(37,180,3));
                     x = x + 15;
                     campoFlores.getChildren().add(rectangle);
                 }
