@@ -23,7 +23,6 @@ public class Flor {
 
     //Setters y getters
 
-
     public ArrayList<Color> getPolen() {
         return polen;
     }
@@ -101,6 +100,11 @@ public class Flor {
          * */
 
         return coloresEnum.get(codigos.indexOf(codigo));
+    }
+
+    public void imprimir(){
+        System.out.println(getColor());
+        System.out.println(getPunto());
     }
 
 }

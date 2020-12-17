@@ -1,9 +1,7 @@
 package MODEL;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Abeja {
 
@@ -12,6 +10,9 @@ public class Abeja {
     private Flor flor;
     private Direccion direccionFav;
     private Busqueda busqueda;
+    private float adapatablidad;
+    private ArrayList<Abeja> padres;
+    private ArrayList<Integer> cromosomas;
 
     private ArrayList<String> polen ;
     private float kilometraje=0;
@@ -20,17 +21,48 @@ public class Abeja {
     private ArrayList<ArrayList<Integer>> codigos;
     private ArrayList<Direccion> direcciones;
 
+
+
     //Constructor
     public Abeja(){
         this.flor = new Flor();
         this.direccionFav = Direccion.Este;
         this.busqueda = new Busqueda();
         this.polen = new ArrayList<>();
+        this.adapatablidad = 0;
+        this.padres = new ArrayList<>(new ArrayList<>(Arrays.asList(new Abeja(), new Abeja())));
+        this.cromosomas = new ArrayList<>();
+
         setDirecciones();
         setCodigos();
     }
 
     //Setters y getters de los atributos
+
+
+    public ArrayList<Integer> getCromosomas() {
+        return cromosomas;
+    }
+
+    public void setCromosomas(ArrayList<Integer> cromosomas) {
+        this.cromosomas = cromosomas;
+    }
+
+    public ArrayList<Abeja> getPadres() {
+        return padres;
+    }
+
+    public void setPadres(ArrayList<Abeja> padres) {
+        this.padres = padres;
+    }
+
+    public float getAdapatablidad() {
+        return adapatablidad;
+    }
+
+    public void setAdapatablidad(float adapatablidad) {
+        this.adapatablidad = adapatablidad;
+    }
 
     public ArrayList<ArrayList<Integer>> getCodigos() {
         return codigos;

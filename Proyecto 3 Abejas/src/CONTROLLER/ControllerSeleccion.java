@@ -50,6 +50,11 @@ public class ControllerSeleccion {
         Abeja abejaHija1 = codificar.decodificarAbeja(hijo1);
         Abeja abejaHija2 = codificar.decodificarAbeja(hijo2);
 
+        abeja1.setPadres(new ArrayList<>(Arrays.asList(abeja1, abeja2)));
+        abeja1.setCromosomas(hijo1);
+        abeja2.setPadres(new ArrayList<>(Arrays.asList(abeja1, abeja2)));
+        abeja2.setCromosomas(hijo2);
+
         abejasNuevas.add(abejaHija1);
         abejasNuevas.add(abejaHija2);
 
@@ -160,45 +165,89 @@ public class ControllerSeleccion {
         return abejasMutadas;
     }
 
+    //Pasar después a naturaleza
+
+    public ArrayList<Abeja> poblacionInicialAbejas(int cantAbejas){
+
+        ArrayList<Abeja> poblacionInicial = new ArrayList<>();
+        Abeja abeja = new Abeja();
+        ArrayList<Direccion> direcciones = abeja.getDirecciones();
+        ArrayList<Color> coloresFlores = abeja.getFlor().getColores();
+        Random random = new Random();
+        ArrayList<Orden> ordenes = abeja.getBusqueda().getRecorrido().getOrdenes();
+        ArrayList<Boolean> puntoInicio = new ArrayList<>(new ArrayList<>(Arrays.asList(true, false)));
+
+        int direccion;
+        int color;
+        int angulo;
+        int distancia;
+        int pi;
+        int orden;
+
+        int cantAb = cantAbejas;
+        while(cantAb!=0){
+
+            direccion = random.nextInt(direcciones.size());
+            color = random.nextInt(coloresFlores.size());
+            angulo = random.nextInt(180);
+            distancia = random.nextInt(55);
+            pi = random.nextInt(2);
+            orden = random.nextInt(ordenes.size());
+
+            Flor florAb = new Flor();
+            florAb.setColor(coloresFlores.get(color));
+
+            Recorrido recorridoAb = new Recorrido();
+            recorridoAb.setPuntoInicio(puntoInicio.get(pi));
+            recorridoAb.setOrden(ordenes.get(orden));
+
+            Busqueda busquedaAb = new Busqueda();
+            busquedaAb.setDistanciaMaxima(distancia);
+            busquedaAb.setAnguloDesviacion(angulo);
+            busquedaAb.setRecorrido(recorridoAb);
+
+            Abeja nuevaAbeja = new Abeja();
+            nuevaAbeja.setDireccionFav(direcciones.get(direccion));
+            nuevaAbeja.setFlor(florAb);
+            nuevaAbeja.setBusqueda(busquedaAb);
+            abeja.setCromosomas(codificar.codificarAbeja(abeja));
+
+            poblacionInicial.add(nuevaAbeja);
+
+            cantAb--;
+        }
+        return poblacionInicial;
+    }
+
+    public ArrayList<Flor> poblacionInicialFlores(int cantFlores){
+        ArrayList<Flor> flores = new ArrayList<>();
+
+        Flor flor = new Flor();
+        ArrayList<Color> colores = flor.getColores();
+        Random random = new Random();
+        int x;
+        int y;
+        int col;
+
+        int cant = cantFlores;
+        while (cant!=0){
+            col = random.nextInt(colores.size());
+            x = random.nextInt(50);
+            y = random.nextInt(100);
+            Flor nuevaFlor = new Flor();
+            nuevaFlor.setColor(colores.get(col));
+            nuevaFlor.setPunto(new ArrayList<>(Arrays.asList(x,y)));
+            flores.add(nuevaFlor);
+            cant--;
+        }
+        return flores;
+    }
+
     public static void main(String[] args) {
         ControllerSeleccion seleccion = new ControllerSeleccion();
-        ArrayList<Abeja> abejas =  new ArrayList<>();
-        Abeja madre = new Abeja();
-        madre.setDireccionFav(Direccion.Sur);
-        Busqueda busqueda = new Busqueda();
-        busqueda.setAnguloDesviacion(35);
-        busqueda.setDistanciaMaxima(100);
-        Recorrido recorrido = new Recorrido();
-        recorrido.setPuntoInicio(false);
-        recorrido.setOrden(Orden.Profundidad);
-        busqueda.setRecorrido(recorrido);
-        madre.setBusqueda(busqueda);
-        Flor flor = new Flor();
-        flor.setColor(Color.Azul);
-        madre.setFlor(flor);
-
-        Abeja padre = new Abeja();
-        padre.setDireccionFav(Direccion.Oeste);
-        Busqueda busqueda1 = new Busqueda();
-        busqueda1.setDistanciaMaxima(65);
-        busqueda1.setAnguloDesviacion(10);
-        Recorrido recorrido1 = new Recorrido();
-        recorrido1.setOrden(Orden.Random);
-        recorrido1.setPuntoInicio(true);
-        busqueda1.setRecorrido(recorrido1);
-        padre.setBusqueda(busqueda1);
-        Flor flor1 = new Flor();
-        flor1.setColor(Color.Morado);
-        padre.setFlor(flor1);
-
-        abejas.addAll(Arrays.asList(padre, madre));
-
-        ArrayList<Abeja> mutadas = seleccion.mutacion(abejas);
-        padre.imprimir();
-        madre.imprimir();
-        for(Abeja abeja: mutadas){
-            abeja.imprimir();
+        ArrayList<Flor> flores = seleccion.poblacionInicialFlores(1000);
+        for(Flor flor: flores){
+            flor.imprimir();
         }
-
     }
 }

@@ -14,9 +14,10 @@ public class ControllerCodificar {
     //Angulo de desviación de la abeja
     public ArrayList<Integer> codigoAngulo(int angulo){
         /**
-         * Codifica el ángulo de desviación recibido, no puede ser mayor a 64
+         * Codifica el ángulo de desviación recibido, no puede ser mayor a 180
          * Recibe un int de ángulo
          * Retorna una lista de bits que corresponden al código binario del ángulo
+         * La lista de bits es de 8
          * */
 
         ArrayList<Integer> anguloBin = new ArrayList<>();
@@ -26,12 +27,15 @@ public class ControllerCodificar {
             anguloBin.add(0, nuevoAng%2);
             nuevoAng = nuevoAng/2;
         }
-        int tamanno = 6-anguloBin.size();
-        if(anguloBin.size()<6){
+
+
+        int tamanno = 8-anguloBin.size();
+        if(anguloBin.size()<8){
             for (int i = 0; i < tamanno; i++){
                 anguloBin.add(0,0);
             }
         }
+
 
         return anguloBin;
     }
@@ -39,8 +43,9 @@ public class ControllerCodificar {
         public ArrayList<Integer> codigoDistMax(int distanciaMaxima){
         /**
          * Codifica la distancia máxima en bits
-         * Recibe un int de la distancia máxima de la abeja, no puede ser mayor a 128
+         * Recibe un int de la distancia máxima de la abeja, no puede ser mayor a 55
          * Retorna una lista de bits que corresponden a la distancia máxima
+         * La lista de bits es de 6
          * */
 
             ArrayList<Integer> distMax = new ArrayList<>();
@@ -50,8 +55,8 @@ public class ControllerCodificar {
                 distMax.add(0, nuevaDistancia%2);
                 nuevaDistancia = nuevaDistancia/2;
             }
-            int tamanno = 7-distMax.size();
-            if(distMax.size()<7){
+            int tamanno = 6-distMax.size();
+            if(distMax.size()<6){
                 for (int i = 0; i < tamanno; i++){
                     distMax.add(0, 0);
                 }
@@ -59,7 +64,7 @@ public class ControllerCodificar {
             return distMax;
     }
 
-    public Integer decodificarAnguloODis(ArrayList<Integer> codigo){
+    public Integer decodificarAnguloODis(ArrayList<Integer> codigo, boolean distan){
         /**
          * Decodifica la distancia máxima o el ángulo
          * Recibe una lista de bits que corresponden a la distancia o al ángulo
@@ -74,6 +79,20 @@ public class ControllerCodificar {
             exponente ++;
             if(bit == 1) {
                 angulo = angulo + potencia;
+            }
+        }
+        if(distan){
+            if (angulo > 55) {
+                Random random = new Random();
+                int dis = random.nextInt(55);
+                angulo = dis;
+            }
+        }
+        else{
+            if(angulo>180){
+                Random random = new Random();
+                int ang = random.nextInt(180);
+                angulo = ang;
             }
         }
         return angulo;
@@ -133,7 +152,7 @@ public class ControllerCodificar {
          * Toma las demás funciones de codificar la busqueda y las une para devolver un solo código de búsqueda
          * Recibe una Busqueda
          * Retorna una lista de bits que corresponden a la búsqueda.
-         * Aclaración: los primeros 6 bits son el ángulo, los siguientes 7 la distancia máxuma y los últimos 3 el recorrido
+         * Aclaración: los primeros 8 bits son el ángulo, los siguientes 6 la distancia máxuma y los últimos 3 el recorrido
          * */
 
         ArrayList<Integer> codigoBusqueda = new ArrayList<>();
@@ -154,20 +173,22 @@ public class ControllerCodificar {
          * Hace uso de las otras funciones de decodificar busqueda para decodificar toda la búsqueda.
          * Recibe una lista de códigos.
          * Retorna una Busqueda
+         * La lista es de 17 bits
          * */
+
         Busqueda busqueda = new Busqueda();
 
-        List<Integer> angulo = codigos.subList(0, 6);
+        List<Integer> angulo = codigos.subList(0, 8);
         ArrayList<Integer> anguloA = new ArrayList<>(); anguloA.addAll(angulo);
-        List<Integer> distanciaMax = codigos.subList(6, 13);
+        List<Integer> distanciaMax = codigos.subList(8, 14);
         ArrayList<Integer> distanciaMaxA = new ArrayList<>(); distanciaMaxA.addAll(distanciaMax);
-        List<Integer> recorridol = codigos.subList(13, codigos.size());
+        List<Integer> recorridol = codigos.subList(14, codigos.size());
         ArrayList<Integer> recorridoA = new ArrayList<>(); recorridoA.addAll(recorridol);
 
         Recorrido recorrido = decodificarRecorrido(recorridoA);
         busqueda.setRecorrido(recorrido);
-        busqueda.setAnguloDesviacion(decodificarAnguloODis(anguloA));
-        busqueda.setDistanciaMaxima(decodificarAnguloODis(distanciaMaxA));
+        busqueda.setAnguloDesviacion(decodificarAnguloODis(anguloA, false));
+        busqueda.setDistanciaMaxima(decodificarAnguloODis(distanciaMaxA, true));
 
         return busqueda;
     }
@@ -200,7 +221,7 @@ public class ControllerCodificar {
          * Decodifica el array de bits para una Abeja
          * Recibe una lista de bits
          * Retorna una abeja basada en el codigo de bits
-         * Aclaración: es un código de 22 bits, los primeros 3 la flor, los otros 3 la dirección, y los últimos 16 parámetros de busqueda
+         * Aclaración: es un código de 23 bits, los primeros 3 la flor, los otros 3 la dirección, y los últimos 17 parámetros de busqueda
          * */
         Abeja abeja = new Abeja();
 
@@ -218,6 +239,33 @@ public class ControllerCodificar {
         abeja.setBusqueda(decodificarBusqueda(bus));
 
         return abeja;
+    }
+
+    public static void main(String[] args){
+        ControllerCodificar codificar = new ControllerCodificar();
+        Abeja abeja = new Abeja();
+        abeja.setDireccionFav(Direccion.Oeste);
+        Flor flor = new Flor();
+        flor.setColor(Color.Morado);
+        abeja.setFlor(flor);
+        Busqueda busqueda = new Busqueda();
+        busqueda.setAnguloDesviacion(200);
+        busqueda.setDistanciaMaxima(57);
+        Recorrido recorrido = new Recorrido();
+        recorrido.setOrden(Orden.Profundidad);
+        recorrido.setPuntoInicio(false);
+        busqueda.setRecorrido(recorrido);
+        abeja.setBusqueda(busqueda);
+
+        ArrayList<Integer> abejaC = codificar.codificarAbeja(abeja);
+        Abeja abeja1 = codificar.decodificarAbeja(abejaC);
+
+        System.out.println("*************************************");
+        abeja.imprimir();
+        System.out.println("*************************************");
+        abeja1.imprimir();
+
+
     }
 
 }
