@@ -13,7 +13,7 @@ public class Abeja {
     private Direccion direccionFav;
     private Busqueda busqueda;
 
-    private ArrayList<String> polen;
+    private ArrayList<String> polen ;
     private float kilometraje=0;
     private float puntaje;
 
@@ -112,7 +112,6 @@ public class Abeja {
     public void setPuntaje(float kl) {
         this.puntaje = kl;
     }
-
     //Funciones de la abeja
     public ArrayList<Integer> codigoDireccion(Direccion direccion){
         /**

@@ -5,6 +5,7 @@ import java.util.List;
 public class Nodo {
     private Flor Flor;
     private List<Arco> Arcos;
+    public boolean checkeado=false;
 
     public void setFlor(Flor pFlor) {
         this.Flor = pFlor;
