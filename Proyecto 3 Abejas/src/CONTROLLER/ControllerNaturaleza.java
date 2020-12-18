@@ -122,9 +122,23 @@ public class ControllerNaturaleza {
                 }
 
             }
-            Flor flor1;
-            Flor flor2;
+
             //for mierda in gafo
+            for(Nodo nodo:grafo){
+                int contador=0;
+                Nodo nodoAux=grafo.nodos.get(contador);
+                while(nodoAux!=nodo){
+                    contador=contador+1;
+                    nodoAux=grafo.nodos.get(contador);
+                }
+                while((grafo.nodos.size())!=contador+1){
+                    contador=contador+1;
+                    nodoAux=grafo.nodos.get(contador);
+                    double distanciaFlor=(nodoAux.getFlor().getPunto().get(0)-nodo.getFlor().getPunto().get(0))^2+(nodoAux.getFlor().getPunto().get(1)-nodo.getFlor().getPunto().get(1))^2;
+
+                }
+
+            }
             double distanciaFlor=(flor2.getPunto().get(0)-flor1.getPunto().get(0))^2+(flor2.getPunto().get(1)-flor1.getPunto().get(1))^2;
             distanciaFlor=Math.sqrt(distanciaFlor);
             double peso1=distanciaFlor;
