@@ -1,29 +1,133 @@
 package CONTROLLER;
-import MODEL.Abeja;
-import MODEL.Color;
-import MODEL.Flor;
-import MODEL.Grafo;
-import MODEL.Nodo;
+import MODEL.*;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+
 public class ControllerNaturaleza {
+
     private List<Abeja> Panal;
     final float KmXPolen = 10;
     private Grafo grafo;
     private Flor[][] floral= new Flor[100][50];
-    ArrayList<Integer> Centro=new ArrayList<>();
+    private ArrayList<Integer> Centro=new ArrayList<>();
+    private ArrayList<ArrayList<Abeja>> generaciones = new ArrayList<>();
+
+    private ControllerSeleccion controllerSeleccion = ControllerSeleccion.getInstance();
+    private ControllerCodificar controllerCodificar = ControllerCodificar.getInstance();
+
+
+    public ArrayList<ArrayList<Abeja>> getGeneraciones() {
+        return generaciones;
+    }
+
+    public void setGeneraciones(ArrayList<ArrayList<Abeja>> generaciones) {
+        this.generaciones = generaciones;
+    }
+
+    public ControllerNaturaleza() {}
 
     /*
 
      */
+
+
+    public ArrayList<Abeja> poblacionInicialAbejas(int cantAbejas){
+
+        ArrayList<Abeja> poblacionInicial = new ArrayList<>();
+        Abeja abeja = new Abeja();
+        ArrayList<Direccion> direcciones = controllerCodificar.getDirecciones();
+        ArrayList<Color> coloresFlores = controllerCodificar.getColores();
+        Random random = new Random();
+        ArrayList<Orden> ordenes = controllerCodificar.getOrdenes();
+        ArrayList<Boolean> puntoInicio = new ArrayList<>(new ArrayList<>(Arrays.asList(true, false)));
+
+        int direccion;
+        int color;
+        int angulo;
+        int distancia;
+        int pi;
+        int orden;
+
+        int cantAb = cantAbejas;
+        while(cantAb!=0){
+
+            direccion = random.nextInt(direcciones.size());
+            color = random.nextInt(coloresFlores.size());
+            angulo = random.nextInt(180);
+            distancia = random.nextInt(55);
+            pi = random.nextInt(2);
+            orden = random.nextInt(ordenes.size());
+
+            Flor florAb = new Flor();
+            florAb.setColor(coloresFlores.get(color));
+
+            Recorrido recorridoAb = new Recorrido();
+            recorridoAb.setPuntoInicio(puntoInicio.get(pi));
+            recorridoAb.setOrden(ordenes.get(orden));
+
+            Busqueda busquedaAb = new Busqueda();
+            busquedaAb.setDistanciaMaxima(distancia);
+            busquedaAb.setAnguloDesviacion(angulo);
+            busquedaAb.setRecorrido(recorridoAb);
+
+            Abeja nuevaAbeja = new Abeja();
+            nuevaAbeja.setDireccionFav(direcciones.get(direccion));
+            nuevaAbeja.setFlor(florAb);
+            nuevaAbeja.setBusqueda(busquedaAb);
+            abeja.setCromosomas(controllerCodificar.codificarAbeja(abeja));
+
+            poblacionInicial.add(nuevaAbeja);
+
+            cantAb--;
+        }
+        return poblacionInicial;
+    }
+
+    public ArrayList<Flor> poblacionInicialFlores(int cantFlores){
+        ArrayList<Flor> flores = new ArrayList<>();
+
+        ArrayList<Color> colores = controllerCodificar.getColores();
+        Random random = new Random();
+        int x;
+        int y;
+        int col;
+
+        int cant = cantFlores;
+        while (cant!=0){
+            col = random.nextInt(colores.size());
+            x = random.nextInt(50);
+            y = random.nextInt(100);
+            Flor nuevaFlor = new Flor();
+            nuevaFlor.setColor(colores.get(col));
+            nuevaFlor.setPunto(new ArrayList<>(Arrays.asList(x,y)));
+            flores.add(nuevaFlor);
+            cant--;
+        }
+        return flores;
+    }
+
+    public void iniciarSimulacion(int cantFlores, int cantAbejas){
+        controllerCodificar.setListas();
+
+        ArrayList<Abeja> poblacionInicialAbejas = poblacionInicialAbejas(cantAbejas);
+        ArrayList<Flor> poblacionInicialFlores = poblacionInicialFlores(cantFlores);
+
+        //hacer recorrido
+        List<Abeja> panal = new ArrayList<>();
+        CrearNuevaGen(panal,panal);
+    }
+
     public void GrafoAbeja(List<Abeja> pPanal){
         for(Abeja abejita :pPanal){
             grafo=new Grafo();
             //insertar panal
 
             // busqueda de flores
-            Flor flor1;
-            Flor flor2;
+            Flor flor1 = null;
+            Flor flor2 = null;
             //for mierda in gafo
             double distanciaFlor=(flor2.getPunto().get(0)-flor1.getPunto().get(0))^2+(flor2.getPunto().get(1)-flor1.getPunto().get(1))^2;
             distanciaFlor=Math.sqrt(distanciaFlor);
@@ -72,7 +176,9 @@ public class ControllerNaturaleza {
         aqui se tiene que hacer primero la combinacion de los pares de abejas
         y luego se adieren los ancestros
         por ultimo se remplazan las abejas en la lista de panal
-                 */
+        */
+
+
     }
 
     /*
@@ -103,7 +209,10 @@ public class ControllerNaturaleza {
             }
         }
         CrearNuevaGen(Panal, NuevaGen);
+    }
 
-
+    public static void main(String[] args){
+        ControllerNaturaleza con = new ControllerNaturaleza();
+        con.iniciarSimulacion(100,50);
     }
 }

@@ -18,9 +18,6 @@ public class Abeja {
     private float kilometraje=0;
     private float puntaje;
 
-    private ArrayList<ArrayList<Integer>> codigos;
-    private ArrayList<Direccion> direcciones;
-
 
 
     //Constructor
@@ -30,11 +27,8 @@ public class Abeja {
         this.busqueda = new Busqueda();
         this.polen = new ArrayList<>();
         this.adapatablidad = 0;
-        this.padres = new ArrayList<>(new ArrayList<>(Arrays.asList(new Abeja(), new Abeja())));
         this.cromosomas = new ArrayList<>();
-
-        setDirecciones();
-        setCodigos();
+        this.padres = new ArrayList<>(Arrays.asList(null, null));
     }
 
     //Setters y getters de los atributos
@@ -64,45 +58,12 @@ public class Abeja {
         this.adapatablidad = adapatablidad;
     }
 
-    public ArrayList<ArrayList<Integer>> getCodigos() {
-        return codigos;
-    }
-
     public ArrayList<String> getPolen() {
         return polen;
     }
 
     public void setPolen(ArrayList<String> polen) {
         this.polen = polen;
-    }
-
-    public void setCodigos() {
-        /**
-         * Crea una lista de codigos correspondientes a cada direccion
-         * No recibe ni retorna nada.
-         * Setea el atributo de la lista de códigos.
-         * */
-
-        ArrayList<ArrayList<Integer>> codigos = new ArrayList<>();
-        ArrayList<Integer> norte = new ArrayList<>(Arrays.asList(0, 0, 0)); ArrayList<Integer> sur = new ArrayList<>(Arrays.asList(1, 1, 1)); ArrayList<Integer> este = new ArrayList<>(Arrays.asList(1, 0, 0));
-        ArrayList<Integer> oeste = new ArrayList<>(Arrays.asList(0, 1, 0)); ArrayList<Integer> noreste = new ArrayList<>(Arrays.asList(0, 0, 1)); ArrayList<Integer> noroeste = new ArrayList<>(Arrays.asList(1, 0, 1));
-        ArrayList<Integer> sureste = new ArrayList<>(Arrays.asList(1, 1, 0)); ArrayList<Integer> suroeste = new ArrayList<>(Arrays.asList(0, 1, 1));
-        codigos.add(norte); codigos.add(sur); codigos.add(este); codigos.add(noreste); codigos.add(oeste); codigos.add(sureste); codigos.add(noroeste); codigos.add(suroeste);
-        this.codigos = codigos;
-    }
-
-    public ArrayList<Direccion> getDirecciones() {
-        return direcciones;
-    }
-
-    public void setDirecciones() {
-        /**
-         * Crea una lista de direcciones
-         * No recibe ni retorna nada.
-         * Setea el atributo de la lista de direcciones.
-         * */
-
-        this.direcciones = new ArrayList<>(Arrays.asList(Direccion.values()));
     }
 
     public Flor getFlor() {
@@ -143,26 +104,6 @@ public class Abeja {
 
     public void setPuntaje(float kl) {
         this.puntaje = kl;
-    }
-    //Funciones de la abeja
-    public ArrayList<Integer> codigoDireccion(Direccion direccion){
-        /**
-         * Codifica una Direccion recibida
-         * Recibe una Direccion
-         * Retorna una lista de bits que corresponden al código binario de la direccion
-         * */
-
-        return codigos.get(direcciones.indexOf(direccion));
-    }
-
-    public Direccion decodificarDire (ArrayList<Integer> codigo){
-        /**
-         * Decodifica el codigo recibido en una direccion
-         * Recibe una lista de bits que corresponden al código binario de una dirección
-         * Retorna una Direccion
-         * */
-
-        return direcciones.get(codigos.indexOf(codigo));
     }
 
     public void imprimir(){
