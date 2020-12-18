@@ -14,7 +14,7 @@ public class Abeja {
     private ArrayList<Abeja> padres;
     private ArrayList<Integer> cromosomas;
 
-    private ArrayList<String> polen ;
+    private ArrayList<Color> polen ;
     private float kilometraje=0;
     private float puntaje;
 
@@ -58,11 +58,11 @@ public class Abeja {
         this.adapatablidad = adapatablidad;
     }
 
-    public ArrayList<String> getPolen() {
+    public ArrayList<Color> getPolen() {
         return polen;
     }
 
-    public void setPolen(ArrayList<String> polen) {
+    public void setPolen(ArrayList<Color> polen) {
         this.polen = polen;
     }
 

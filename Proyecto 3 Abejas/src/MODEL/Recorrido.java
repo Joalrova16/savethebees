@@ -39,6 +39,9 @@ public class Recorrido {
     public void setOrden(Orden orden) {
         this.orden = orden;
     }
+    public boolean getPuntoInicio(){
+        return puntoInicio;
+    }
 
 
 }

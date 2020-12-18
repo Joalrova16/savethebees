@@ -12,11 +12,9 @@ public class ControllerNaturaleza {
     ArrayList<Abeja> Panal=new ArrayList<>();
     ArrayList<Flor> Campo=new ArrayList<>();
     ArrayList<Integer> Centro=new ArrayList<>();
-
+    private ArrayList<ArrayList<Abeja>> generaciones = new ArrayList<>();
     private ControllerSeleccion controllerSeleccion = ControllerSeleccion.getInstance();
     private ControllerCodificar controllerCodificar = ControllerCodificar.getInstance();
-
-
     public ArrayList<ArrayList<Abeja>> getGeneraciones() {
         return generaciones;
     }
@@ -113,7 +111,7 @@ public class ControllerNaturaleza {
         ArrayList<Abeja> poblacionInicialAbejas = poblacionInicialAbejas(cantAbejas);
         ArrayList<Flor> poblacionInicialFlores = poblacionInicialFlores(cantFlores);
 
-        //hacer recorrido
+        //hacer recorrido de abjes
         List<Abeja> panal = new ArrayList<>();
         CrearNuevaGen(panal,panal);
     }
@@ -229,7 +227,7 @@ public class ControllerNaturaleza {
             }
 
             //for mierda in gafo
-            for(Nodo nodo:grafo){
+            for(Nodo nodo:grafo.nodos){
                 int contador=0;
                 Nodo nodoAux=grafo.nodos.get(contador);
                 while(nodoAux!=nodo){
@@ -240,44 +238,90 @@ public class ControllerNaturaleza {
                     contador=contador+1;
                     nodoAux=grafo.nodos.get(contador);
                     double distanciaFlor=(nodoAux.getFlor().getPunto().get(0)-nodo.getFlor().getPunto().get(0))^2+(nodoAux.getFlor().getPunto().get(1)-nodo.getFlor().getPunto().get(1))^2;
+                    distanciaFlor=Math.sqrt(distanciaFlor);
+                    double peso1=distanciaFlor;
+                    double peso2=distanciaFlor;
+                    if(abejita.getFlor().getColor()==nodo.getFlor().getColor()){
+                        peso1=peso1-50;
+                    }
+                    if(abejita.getFlor().getColor()==nodoAux.getFlor().getColor()){
+                        peso2=peso2-50;
+                    }
+                    if(nodo.getFlor().getPunto()!= Centro){
+                        peso1=peso1-50;
+                    }
+                    if(nodoAux.getFlor().getPunto()!= Centro){
+                        peso2=peso2-50;
+                    }
+                    Nodo nodo1;
+                    Nodo nodo2;
+                    if(grafo.InNodo(nodo.getFlor())){
+                        nodo1=grafo.BuscarNodo(nodo.getFlor());
+                    }
+                    else{
+                        nodo1=new Nodo();
+                        nodo1.setFlor(nodo.getFlor());
+                    }
+                    if(grafo.InNodo(nodoAux.getFlor())){
+                        nodo2=grafo.BuscarNodo(nodoAux.getFlor());
+                    }
+                    else{
+                        nodo2=new Nodo();
+                        nodo2.setFlor(nodoAux.getFlor());
+                    }
+                    grafo.insertarUnion(nodo1,nodo2,peso1,peso2);
+                    //////////////////////////////////////////revisar grafos
+
+                }
+                if(abejita.getBusqueda().getRecorrido().getPuntoInicio()){
+                    //panal
+                    Nodo nodoFinal=grafo.nodos.get(grafo.nodos.size()-1);
+                    Nodo nodoAct=grafo.nodos.get(0);
+                    double  peso=nodoAct.getArcos().get(0).getDistancia();
+                    int indice=0;
+                    int indicefinal=0;
+                    while (nodoAct!=nodoFinal){
+
+                        while(nodoAct.getArcos().size()!=indice-1){
+                            if(nodoAct.getArcos().get(indice).getDistancia()<peso){
+                                indicefinal=indice;
+                                peso=nodoAct.getArcos().get(indice).getDistancia();
+                            }
+                            indice++;
+                        }
+                        nodoAct=nodoAct.getArcos().get(indice).getDestino();
+                        abejita.getPolen().add(nodoAct.getFlor().getColor());
+                        for(Color polen:abejita.getPolen()){
+                            nodoAct.getFlor().getPolen().add(polen);
+                        }
+
+                    }
+                }else{
+                    Nodo nodoFinal=grafo.nodos.get(0);
+                    Nodo nodoAct=grafo.nodos.get(grafo.nodos.size()-1);
+                    double  peso=nodoAct.getArcos().get(0).getDistancia();
+                    int indice=grafo.nodos.size()-1;
+                    int indicefinal=0;
+                    while (nodoAct!=nodoFinal){
+
+                        while(indice!=0){
+                            if(nodoAct.getArcos().get(indice).getDistancia()<peso){
+                                indicefinal=indice;
+                                peso=nodoAct.getArcos().get(indice).getDistancia();
+                            }
+                            indice--;
+                        }
+                        nodoAct=nodoAct.getArcos().get(indice).getDestino();
+                        abejita.getPolen().add(nodoAct.getFlor().getColor());
+                        for(Color polen:abejita.getPolen()){
+                            nodoAct.getFlor().getPolen().add(polen);
+                        }
+
+                    }
 
                 }
 
             }
-            double distanciaFlor=(flor2.getPunto().get(0)-flor1.getPunto().get(0))^2+(flor2.getPunto().get(1)-flor1.getPunto().get(1))^2;
-            distanciaFlor=Math.sqrt(distanciaFlor);
-            double peso1=distanciaFlor;
-            double peso2=distanciaFlor;
-            if(abejita.getFlor().getColor()==flor1.getColor()){
-                peso1=peso1-50;
-            }
-            if(abejita.getFlor().getColor()==flor2.getColor()){
-                peso2=peso2-50;
-            }
-            if(flor1.getPunto()!= Centro){
-                peso1=peso1-50;
-            }
-            if(flor2.getPunto()!= Centro){
-                peso2=peso2-50;
-            }
-            Nodo nodo1;
-            Nodo nodo2;
-            if(grafo.InNodo(flor1)){
-                nodo1=grafo.BuscarNodo(flor1);
-            }
-            else{
-                nodo1=new Nodo();
-                nodo1.setFlor(flor1);
-            }
-            if(grafo.InNodo(flor2)){
-                nodo2=grafo.BuscarNodo(flor2);
-            }
-            else{
-                nodo2=new Nodo();
-                nodo2.setFlor(flor2);
-            }
-            grafo.insertarUnion(nodo1,nodo2,peso1,peso2);
-
         }
 
 
@@ -292,6 +336,19 @@ public class ControllerNaturaleza {
         y luego se adieren los ancestros
         por ultimo se remplazan las abejas en la lista de panal
         */
+        int cont=0;
+        ArrayList<Abeja> hermanas;
+        pPanal.clear();
+        while(cont<pNuevaGen.size()){
+            hermanas=controllerSeleccion.cruce(pNuevaGen.get(cont),pNuevaGen.get(cont+1));
+            hermanas.get(0).getPadres().add(pNuevaGen.get(cont));
+            hermanas.get(0).getPadres().add(pNuevaGen.get(cont+1));
+            hermanas.get(1).getPadres().add(pNuevaGen.get(cont));
+            hermanas.get(1).getPadres().add(pNuevaGen.get(cont+1));
+            pPanal.add(hermanas.get(0));
+            pPanal.add(hermanas.get(1));
+            cont=cont+2;
+        }
 
 
     }
