@@ -1,16 +1,13 @@
 package CONTROLLER;
-import MODEL.Abeja;
-import MODEL.Color;
-import MODEL.Flor;
-import MODEL.Grafo;
-import MODEL.Nodo;
+import MODEL.*;
+
 import java.util.ArrayList;
 import java.util.List;
 public class ControllerNaturaleza {
-    private List<Abeja> Panal;
     final float KmXPolen = 10;
     private Grafo grafo;
-    private Flor[][] floral= new Flor[100][50];
+    ArrayList<Abeja> Panal=new ArrayList<>();
+    ArrayList<Flor> Campo=new ArrayList<>();
     ArrayList<Integer> Centro=new ArrayList<>();
 
     /*
@@ -19,9 +16,112 @@ public class ControllerNaturaleza {
     public void GrafoAbeja(List<Abeja> pPanal){
         for(Abeja abejita :pPanal){
             grafo=new Grafo();
-            //insertar panal
+            Flor panal=new Flor();
+            panal.setPunto(Centro);
+            Nodo nPanal=new Nodo();
+            nPanal.setFlor(panal);
+            grafo.insertar(nPanal);
+            for(Flor flora:Campo){
+                double dis=Math.sqrt((flora.getPunto().get(0)-panal.getPunto().get(0))^2+(flora.getPunto().get(1)-panal.getPunto().get(1))^2);
+                if(abejita.getBusqueda().getDistanciaMaxima()>dis) {
+                    if (abejita.getDireccionFav() == Direccion.Este) {
+                        double dirderecha = ( 360 - abejita.getBusqueda().getAnguloDesviacion()%360);
+                        double dirizq = (360 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
+                    }
+                    if (abejita.getDireccionFav() == Direccion.Noreste) {
+                        double dirderecha = (45 - abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double dirizq = (45 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
 
-            // busqueda de flores
+
+                    }
+                    if (abejita.getDireccionFav() == Direccion.Norte) {
+                        double dirderecha =( 90 - abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double dirizq = (90 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
+
+                    }
+                    if (abejita.getDireccionFav() == Direccion.Noroeste) {
+                        double dirderecha = (135 - abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double dirizq = (135 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
+
+                    }
+                    if (abejita.getDireccionFav() == Direccion.Oeste) {
+                        double dirderecha =( 180 - abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double dirizq =( 180 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
+
+                    }
+                    if (abejita.getDireccionFav() == Direccion.Suroeste) {
+                        double dirderecha = (225 - abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double dirizq =( 225 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
+
+                    }
+                    if (abejita.getDireccionFav() == Direccion.Sur) {
+                        double dirderecha =( 270 - abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double dirizq =( 270 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
+
+                    }
+                    if (abejita.getDireccionFav() == Direccion.Sureste) {
+                        double dirderecha =( 315 - abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double dirizq =( 315 + abejita.getBusqueda().getAnguloDesviacion())%360;
+                        double pendiente= (flora.getPunto().get(1)-panal.getPunto().get(1)/(flora.getPunto().get(0)-panal.getPunto().get(0)));
+                        pendiente=Math.atan(pendiente);
+                        if(dirderecha<=pendiente&&pendiente<=dirizq){
+                            Nodo nuevo=new Nodo();
+                            nuevo.setFlor(flora);
+                            grafo.insertar(nuevo);
+                        }
+                    }
+                }
+
+            }
             Flor flor1;
             Flor flor2;
             //for mierda in gafo
@@ -35,10 +135,10 @@ public class ControllerNaturaleza {
             if(abejita.getFlor().getColor()==flor2.getColor()){
                 peso2=peso2-50;
             }
-            if(flor1.getPunto()== Centro){
+            if(flor1.getPunto()!= Centro){
                 peso1=peso1-50;
             }
-            if(flor2.getPunto()== Centro){
+            if(flor2.getPunto()!= Centro){
                 peso2=peso2-50;
             }
             Nodo nodo1;
@@ -103,7 +203,5 @@ public class ControllerNaturaleza {
             }
         }
         CrearNuevaGen(Panal, NuevaGen);
-
-
     }
 }

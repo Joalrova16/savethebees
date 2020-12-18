@@ -2,7 +2,7 @@ package MODEL;
 import java.util.ArrayList;
 import java.util.List;
 public class Grafo {
-    private List<Nodo> nodos;
+    public List<Nodo> nodos;
     public void insertar(Nodo pNodo1){
             nodos.add(pNodo1);
     }
