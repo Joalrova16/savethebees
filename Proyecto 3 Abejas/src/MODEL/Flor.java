@@ -9,15 +9,26 @@ public class Flor {
     private Color color;
     private ArrayList<Integer> punto;
     private ArrayList<Color> polen;
+    private int id;
 
     //Constructor
     public Flor() {
-        this.color = Color.Amarillo;
+        this.color = null;
         this.punto = new ArrayList<>(Arrays.asList(0,0));
         this.polen = new ArrayList<>();
+        this.id = 5001;
     }
 
     //Setters y getters
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public ArrayList<Color> getPolen() {
         return polen;

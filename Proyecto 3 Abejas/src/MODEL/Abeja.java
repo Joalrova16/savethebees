@@ -11,8 +11,9 @@ public class Abeja {
     private Direccion direccionFav;
     private Busqueda busqueda;
     private float adapatablidad;
-    private ArrayList<Abeja> padres;
+    private ArrayList<Integer> padres;
     private ArrayList<Integer> cromosomas;
+    private int ID;
 
     private ArrayList<String> polen ;
     private float kilometraje=0;
@@ -22,17 +23,26 @@ public class Abeja {
 
     //Constructor
     public Abeja(){
+        this.ID = 0;
         this.flor = new Flor();
         this.direccionFav = Direccion.Este;
         this.busqueda = new Busqueda();
         this.polen = new ArrayList<>();
         this.adapatablidad = 0;
         this.cromosomas = new ArrayList<>();
-        this.padres = new ArrayList<>(Arrays.asList(null, null));
+        this.padres = new ArrayList<>(Arrays.asList(0,0));
     }
 
     //Setters y getters de los atributos
 
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public ArrayList<Integer> getCromosomas() {
         return cromosomas;
@@ -42,11 +52,11 @@ public class Abeja {
         this.cromosomas = cromosomas;
     }
 
-    public ArrayList<Abeja> getPadres() {
+    public ArrayList<Integer> getPadres() {
         return padres;
     }
 
-    public void setPadres(ArrayList<Abeja> padres) {
+    public void setPadres(ArrayList<Integer> padres) {
         this.padres = padres;
     }
 

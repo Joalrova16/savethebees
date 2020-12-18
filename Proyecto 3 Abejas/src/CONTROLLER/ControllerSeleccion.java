@@ -51,9 +51,9 @@ public class ControllerSeleccion {
         Abeja abejaHija1 = codificar.decodificarAbeja(hijo1);
         Abeja abejaHija2 = codificar.decodificarAbeja(hijo2);
 
-        abeja1.setPadres(new ArrayList<>(Arrays.asList(abeja1, abeja2)));
+        abeja1.setPadres(new ArrayList<>(Arrays.asList(abeja1.getID(), abeja2.getID())));
         abeja1.setCromosomas(hijo1);
-        abeja2.setPadres(new ArrayList<>(Arrays.asList(abeja1, abeja2)));
+        abeja2.setPadres(new ArrayList<>(Arrays.asList(abeja1.getID(), abeja2.getID())));
         abeja2.setCromosomas(hijo2);
 
         abejasNuevas.add(abejaHija1);
@@ -97,7 +97,7 @@ public class ControllerSeleccion {
         return florNueva;
     }
 
-    public ArrayList<Flor> seleccionarNuevasFlores(ArrayList<Flor> flores){
+    public ArrayList<Flor> seleccionarNuevasFlores(ArrayList<Flor> flores){ //probar
         /**
          * Cruza todas las flores del campo de flores
          * Recibe una lista de flores
@@ -105,8 +105,20 @@ public class ControllerSeleccion {
          * */
 
         ArrayList<Flor> nuevas = new ArrayList<>();
-
+        ArrayList<ArrayList<Integer>> puntos = new ArrayList<>();
         for(Flor flor: flores){
+            puntos.add(flor.getPunto());
+            if(flor.getPolen().isEmpty()){
+                Random random = new Random();
+                int x = random.nextInt(50);
+                int y = random.nextInt(100);
+                while(puntos.contains(new ArrayList<>(Arrays.asList(x,y)))) {
+                    x = random.nextInt(50);
+                    y = random.nextInt(100);
+                }
+
+                flor.setPunto(new ArrayList<>(Arrays.asList(x,y)));
+            }
             nuevas.add(cambiarFlor(flor));
         }
 

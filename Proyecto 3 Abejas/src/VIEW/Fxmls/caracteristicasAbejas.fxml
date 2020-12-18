@@ -12,7 +12,7 @@
 
 <Pane fx:id="caractAbeja" prefHeight="595.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.ControllerView">
    <children>
-      <ImageView fitHeight="612.0" fitWidth="1060.0" layoutX="-25.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="625.0" fitWidth="1085.0" layoutX="-41.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/fondoAbejas.gif" />
          </image>
@@ -38,7 +38,7 @@
             </Lighting>
          </effect>
       </ImageView>
-      <ComboBox fx:id="abejasGenCB" disable="true" layoutX="68.0" layoutY="386.0" prefHeight="32.0" prefWidth="186.0" style="-fx-background-color: TOMATO;">
+      <ComboBox fx:id="abejasGenCB" disable="true" layoutX="68.0" layoutY="386.0" prefHeight="32.0" prefWidth="186.0" promptText="Sin selección" style="-fx-background-color: TOMATO;">
          <effect>
             <DropShadow color="#0cb244" height="39.66" radius="15.442499999999999" width="24.11" />
          </effect></ComboBox>
@@ -73,7 +73,7 @@
             <Line endX="-40.0" fill="#ff0404" layoutX="533.0" layoutY="270.0" startX="-100.0" stroke="RED" strokeWidth="3.0" />
             <Line endX="-40.0" fill="#05ff5e" layoutX="533.0" layoutY="366.0" startX="-100.0" stroke="#ff0202" strokeWidth="3.0" />
             <Line endX="-40.0" fill="#05ff5e" layoutX="533.0" layoutY="411.0" startX="-100.0" stroke="#078d24" strokeWidth="3.0" />
-            <Line endX="-40.0" fill="#ff0404" layoutX="535.0" layoutY="454.0" startX="-100.0" stroke="#078d24" strokeWidth="3.0" />
+            <Line endX="-40.0" fill="#ff0404" layoutX="535.0" layoutY="454.0" startX="-100.0" stroke="#ff0404" strokeWidth="3.0" />
             <Label fx:id="ordenL" layoutX="547.0" layoutY="439.0" text="Random" textFill="WHITE">
                <font>
                   <Font name="Harlow Solid Italic" size="20.0" />
@@ -210,7 +210,7 @@
             <Font name="Ravie" size="20.0" />
          </font>
       </Label>
-      <ComboBox layoutX="74.0" layoutY="168.0" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: DARKSEAGREEN;">
+      <ComboBox fx:id="generacionAbeja" layoutX="74.0" layoutY="168.0" prefHeight="32.0" prefWidth="190.0" promptText="Sin selección" style="-fx-background-color: DARKSEAGREEN;">
          <effect>
             <DropShadow color="#833a3a" height="30.33" radius="8.445" width="5.45" />
          </effect></ComboBox>
@@ -242,7 +242,7 @@
       </Label>
       <Pane fx:id="panal" layoutX="403.0" layoutY="120.0" prefHeight="416.0" prefWidth="559.0">
          <children>
-            <ImageView fitHeight="371.0" fitWidth="407.0" layoutX="69.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="371.0" fitWidth="407.0" layoutX="69.0" layoutY="23.0" onMouseClicked="#cargarCB" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/panalAb.png" />
                </image>

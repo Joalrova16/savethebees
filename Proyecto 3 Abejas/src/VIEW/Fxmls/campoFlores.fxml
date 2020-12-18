@@ -23,7 +23,7 @@
                </light>
             </Lighting>
          </effect></Rectangle>
-      <Button layoutX="545.0" layoutY="934.0" mnemonicParsing="false" onAction="#anterioresGen" style="-fx-background-color: CADETBLUE;" text="ANTERIOR" textFill="RED">
+      <Button layoutX="467.0" layoutY="934.0" mnemonicParsing="false" onAction="#anterioresGen" style="-fx-background-color: CADETBLUE;" text="ANTERIOR" textFill="RED">
          <font>
             <Font name="Ravie" size="16.0" />
          </font>
@@ -37,7 +37,7 @@
                </light>
             </Lighting>
          </effect></Button>
-      <Button layoutX="762.0" layoutY="934.0" mnemonicParsing="false" onAction="#siguienteGen" style="-fx-background-color: CADETBLUE;" text="SIGUIENTE" textFill="RED">
+      <Button layoutX="705.0" layoutY="934.0" mnemonicParsing="false" onAction="#siguienteGen" style="-fx-background-color: CADETBLUE;" text="SIGUIENTE" textFill="RED">
          <font>
             <Font name="Ravie" size="16.0" />
          </font>
@@ -61,7 +61,7 @@
             <Font name="Ravie" size="25.0" />
          </font>
       </Label>
-      <ImageView fx:id="panelV" fitHeight="98.0" fitWidth="133.0" layoutX="731.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="panelV" fitHeight="31.0" fitWidth="60.0" layoutX="780.0" layoutY="501.0" onMouseClicked="#cargarMatrizIncial" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/panal.png" />
          </image>
@@ -136,7 +136,7 @@
             <Image url="@../Images/adorno.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="513.0" layoutY="910.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="359.0" layoutY="910.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/adorno.png" />
          </image>
@@ -151,7 +151,7 @@
             <Image url="@../Images/abejaNav2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="66.0" layoutX="704.0" layoutY="915.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="66.0" layoutX="644.0" layoutY="914.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/abejaInicio.png" />
          </image>
@@ -166,7 +166,7 @@
             <Image url="@../Images/abejaNav2.png" />
          </image>
       </ImageView>
-      <ComboBox layoutX="964.0" layoutY="951.0" prefWidth="150.0" style="-fx-background-color: TOMATO;">
+      <ComboBox fx:id="generacionesFlores" layoutX="914.0" layoutY="943.0" prefHeight="31.0" prefWidth="179.0" promptText="Sin selección" style="-fx-background-color: TOMATO;">
          <effect>
             <Lighting>
                <bumpInput>
@@ -178,7 +178,7 @@
             </Lighting>
          </effect>
       </ComboBox>
-      <Label layoutX="964.0" layoutY="916.0" text="Generaciones" textFill="#06bc00">
+      <Label layoutX="929.0" layoutY="912.0" text="Generaciones" textFill="#06bc00">
          <font>
             <Font name="Ravie" size="17.0" />
          </font>
@@ -186,15 +186,30 @@
             <Reflection fraction="0.4" />
          </effect>
       </Label>
-      <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="1102.0" layoutY="960.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="1156.0" layoutY="966.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/adorno.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="66.0" layoutX="914.0" layoutY="917.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="66.0" layoutX="847.0" layoutY="917.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/abejaInicio.png" />
          </image>
       </ImageView>
+      <Button layoutX="1100.0" layoutY="945.0" mnemonicParsing="false" onAction="#selecCBGen" prefHeight="31.0" prefWidth="47.0" style="-fx-background-color: GREEN;" text="VER" textFill="#6b0931">
+         <font>
+            <Font name="Ravie" size="9.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="1.73" specularConstant="0.94" specularExponent="12.2" surfaceScale="2.93">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#fff7f7" />
+               </light>
+            </Lighting>
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

@@ -9,6 +9,8 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
+    ControllerView controllerView = new ControllerView();
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("FXMLS/venPrincipal.fxml"));
