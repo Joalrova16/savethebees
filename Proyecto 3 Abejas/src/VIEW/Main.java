@@ -11,11 +11,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Fxmls/venPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLS/venPrincipal.fxml"));
         primaryStage.setTitle("EVOLUCIÓN");
-        primaryStage.initStyle( StageStyle.TRANSPARENT);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 
 

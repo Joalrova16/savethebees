@@ -9,16 +9,19 @@ import java.util.Random;
 
 public class ControllerSeleccion {
 
-    private ControllerCodificar codificar = new ControllerCodificar();
+    private int indiceMutacion = 10;
 
-    public ControllerSeleccion() {}
+    private ControllerCodificar codificar = ControllerCodificar.getInstance();
 
-    public ControllerCodificar getCodificar() {
-        return codificar;
-    }
+    private static ControllerSeleccion controllerSeleccion;
 
-    public void setCodificar(ControllerCodificar codificar) {
-        this.codificar = codificar;
+    public ControllerSeleccion(){}
+
+    public static ControllerSeleccion getInstance(){
+        if(controllerSeleccion == null){
+            controllerSeleccion = new ControllerSeleccion();
+        }
+        return controllerSeleccion;
     }
 
     public ArrayList<Abeja> cruce(Abeja abeja1, Abeja abeja2) {
@@ -48,26 +51,14 @@ public class ControllerSeleccion {
         Abeja abejaHija1 = codificar.decodificarAbeja(hijo1);
         Abeja abejaHija2 = codificar.decodificarAbeja(hijo2);
 
+        abeja1.setPadres(new ArrayList<>(Arrays.asList(abeja1, abeja2)));
+        abeja1.setCromosomas(hijo1);
+        abeja2.setPadres(new ArrayList<>(Arrays.asList(abeja1, abeja2)));
+        abeja2.setCromosomas(hijo2);
+
         abejasNuevas.add(abejaHija1);
         abejasNuevas.add(abejaHija2);
 
-        System.out.println("Cortar a: " + cruzarAl);
-        System.out.println("\n\nMADRE: " + abejaMadre);
-        System.out.println("\nCromosomas Madre: " + cromosomasCruzarMadre);
-        System.out.println("\nPADRE: " + abejaPadre);
-        System.out.println("\nCromosomas Padre: " + cromosomasCruzarPadre);
-        System.out.println("\nHIJO 1: " + hijo1);
-        System.out.println("\nHIJO 2: " + hijo2);
-
-        System.out.println("\n********************************************\n");
-        System.out.println("Abeja madre:");
-        abeja1.imprimir();
-        System.out.println("\nAbeja padre:");
-        abeja2.imprimir();
-        System.out.println("\n-----------------------------------------------\nAbeja hija 1:");
-        abejaHija1.imprimir();
-        System.out.println("\nAbeja hija 2:");
-        abejaHija2.imprimir();
         return abejasNuevas;
     }
 
@@ -84,7 +75,7 @@ public class ControllerSeleccion {
         Color colorM = flor.getColor();
 
         ArrayList<Color> coloresFlor = flor.getPolen();
-        ArrayList<Color> colores = flor.getColores();
+        ArrayList<Color> colores = codificar.getColores();
 
         if(!coloresFlor.isEmpty()){
             Random random = new Random();
@@ -103,10 +94,6 @@ public class ControllerSeleccion {
             }
         }
         florNueva.setColor(colorM);
-        System.out.println(flor.getPunto());
-        System.out.println(flor.getColor());
-        System.out.println(florNueva.getColor());
-        System.out.println(florNueva.getPunto());
         return florNueva;
     }
 
@@ -126,43 +113,35 @@ public class ControllerSeleccion {
         return nuevas;
     }
 
-    public static void main(String[] args) {
-//        ControllerSeleccion seleccion = new ControllerSeleccion();
-//        Abeja madre = new Abeja();
-//        madre.setDireccionFav(Direccion.Sur);
-//        Busqueda busqueda = new Busqueda();
-//        busqueda.setAnguloDesviacion(35);
-//        busqueda.setDistanciaMaxima(100);
-//        Recorrido recorrido = new Recorrido();
-//        recorrido.setPuntoInicio(false);
-//        recorrido.setOrden(Orden.Profundidad);
-//        busqueda.setRecorrido(recorrido);
-//        madre.setBusqueda(busqueda);
-//        Flor flor = new Flor();
-//        flor.setColor(Color.Azul);
-//        madre.setFlor(flor);
-//
-//        Abeja padre = new Abeja();
-//        padre.setDireccionFav(Direccion.Oeste);
-//        Busqueda busqueda1 = new Busqueda();
-//        busqueda1.setDistanciaMaxima(65);
-//        busqueda1.setAnguloDesviacion(10);
-//        Recorrido recorrido1 = new Recorrido();
-//        recorrido1.setOrden(Orden.Random);
-//        recorrido1.setPuntoInicio(true);
-//        busqueda1.setRecorrido(recorrido1);
-//        padre.setBusqueda(busqueda1);
-//        Flor flor1 = new Flor();
-//        flor1.setColor(Color.Morado);
-//        padre.setFlor(flor1);
-//
-//        seleccion.cruce(madre, padre);
-        ControllerSeleccion seleccion = new ControllerSeleccion();
-        Flor flor = new Flor();
-        ArrayList<Color> colors = new ArrayList<>(Arrays.asList(Color.Rojo, Color.Azul, Color.Azul, Color.Rojo, Color.Amarillo, Color.Verde, Color.Azul, Color.Negro, Color.Verde));
-//        flor.setPolen(colors);
-        flor.setPunto(new ArrayList<>(Arrays.asList(0,2)));
-        seleccion.cambiarFlor(flor);
+    public ArrayList<Abeja> mutacion(ArrayList<Abeja> nuevaGen) {
+        ArrayList<Abeja> abejasMutadas = new ArrayList<>();
+        ArrayList<Integer> nuevaGenCodigos = new ArrayList<>();
 
+        for(Abeja abeja: nuevaGen){
+            nuevaGenCodigos.addAll(codificar.codificarAbeja(abeja));
+        }
+        Random random = new Random();
+        int i = indiceMutacion;
+        while (i != 0){
+
+            int cambiar = random.nextInt(nuevaGenCodigos.size());
+
+            if (nuevaGenCodigos.get(cambiar) == 0){
+                nuevaGenCodigos.set(cambiar, 1);
+            }
+            else{
+                nuevaGenCodigos.set(cambiar, 0);
+            }
+            i--;
+        }
+        int cont = 0;
+        int subList = 0;
+        while(cont != nuevaGen.size()){
+            Abeja nueva = codificar.decodificarAbeja(new ArrayList<>(nuevaGenCodigos.subList(subList, subList+23)));
+            abejasMutadas.add(nueva);
+            subList+=23;
+            cont++;
+        }
+        return abejasMutadas;
     }
 }
