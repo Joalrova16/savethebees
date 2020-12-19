@@ -1,12 +1,12 @@
 package MODEL;
 
-public enum Color {
-    Negro,
-    Blanco,
-    Verde,
-    Azul,
-    Rojo,
-    Amarillo,
-    Morado,
-    Cian
+public enum Color{
+    PINK,
+    WHITE,
+    GREEN,
+    BLUE,
+    RED,
+    YELLOW,
+    VIOLET,
+    CYAN
 }

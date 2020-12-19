@@ -12,28 +12,36 @@ public class ControllerNaturaleza {
     ArrayList<Abeja> Panal=new ArrayList<>();
     ArrayList<Flor> Campo=new ArrayList<>();
     ArrayList<Integer> Centro=new ArrayList<>();
-    private ArrayList<ArrayList<Abeja>> generaciones = new ArrayList<>();
+    private ArrayList<ArrayList<Abeja>> generacionesAbejas = new ArrayList<>();
+    private ArrayList<ArrayList<Flor>> generacionesCampoFlores = new ArrayList<>();
     private ControllerSeleccion controllerSeleccion = ControllerSeleccion.getInstance();
     private ControllerCodificar controllerCodificar = ControllerCodificar.getInstance();
     public ArrayList<ArrayList<Abeja>> getGeneraciones() {
         return generaciones;
     }
 
-    public void setGeneraciones(ArrayList<ArrayList<Abeja>> generaciones) {
-        this.generaciones = generaciones;
+    public void setGeneracionesAbejas(ArrayList<ArrayList<Abeja>> generacionesAbejas) {
+        this.generacionesAbejas = generacionesAbejas;
     }
 
-    public ControllerNaturaleza() {}
+    private static ControllerNaturaleza controllerNaturaleza;
+
+    public ControllerNaturaleza(){}
+
+    public static ControllerNaturaleza getInstance(){
+        if(controllerNaturaleza == null){
+            controllerNaturaleza = new ControllerNaturaleza();
+        }
+        return controllerNaturaleza;
+    }
 
     /*
 
      */
 
-
-    public ArrayList<Abeja> poblacionInicialAbejas(int cantAbejas){
+    public ArrayList<Abeja> poblacionInicialAbejas(int cantAbejas) {
 
         ArrayList<Abeja> poblacionInicial = new ArrayList<>();
-        Abeja abeja = new Abeja();
         ArrayList<Direccion> direcciones = controllerCodificar.getDirecciones();
         ArrayList<Color> coloresFlores = controllerCodificar.getColores();
         Random random = new Random();
@@ -48,7 +56,8 @@ public class ControllerNaturaleza {
         int orden;
 
         int cantAb = cantAbejas;
-        while(cantAb!=0){
+        int id = 1;
+        while (cantAb != 0) {
 
             direccion = random.nextInt(direcciones.size());
             color = random.nextInt(coloresFlores.size());
@@ -73,18 +82,21 @@ public class ControllerNaturaleza {
             nuevaAbeja.setDireccionFav(direcciones.get(direccion));
             nuevaAbeja.setFlor(florAb);
             nuevaAbeja.setBusqueda(busquedaAb);
-            abeja.setCromosomas(controllerCodificar.codificarAbeja(abeja));
+            nuevaAbeja.setCromosomas(controllerCodificar.codificarAbeja(nuevaAbeja));
+            nuevaAbeja.setID(id);
 
             poblacionInicial.add(nuevaAbeja);
 
             cantAb--;
+            id++;
         }
         return poblacionInicial;
     }
 
-    public ArrayList<Flor> poblacionInicialFlores(int cantFlores){
+    public ArrayList<Flor> poblacionInicialFlores(int cantFlores) {
         ArrayList<Flor> flores = new ArrayList<>();
 
+        ArrayList<ArrayList<Integer>> puntos = new ArrayList<>();
         ArrayList<Color> colores = controllerCodificar.getColores();
         Random random = new Random();
         int x;
@@ -92,20 +104,26 @@ public class ControllerNaturaleza {
         int col;
 
         int cant = cantFlores;
-        while (cant!=0){
+        while (cant != 0) {
             col = random.nextInt(colores.size());
             x = random.nextInt(50);
             y = random.nextInt(100);
+            while(puntos.contains(new ArrayList<>(Arrays.asList(x,y)))){
+                x = random.nextInt(50);
+                y = random.nextInt(100);
+            }
+            puntos.add(new ArrayList<>(Arrays.asList(x,y)));
             Flor nuevaFlor = new Flor();
             nuevaFlor.setColor(colores.get(col));
-            nuevaFlor.setPunto(new ArrayList<>(Arrays.asList(x,y)));
+            nuevaFlor.setPunto(new ArrayList<>(Arrays.asList(x, y)));
+            nuevaFlor.setId(((y-1)*50+x));
             flores.add(nuevaFlor);
             cant--;
         }
         return flores;
     }
 
-    public void iniciarSimulacion(int cantFlores, int cantAbejas){
+    public void iniciarSimulacion(int cantFlores, int cantAbejas) {
         controllerCodificar.setListas();
 
         ArrayList<Abeja> poblacionInicialAbejas = poblacionInicialAbejas(cantAbejas);
@@ -113,7 +131,7 @@ public class ControllerNaturaleza {
 
         //hacer recorrido de abjes
         List<Abeja> panal = new ArrayList<>();
-        CrearNuevaGen(panal,panal);
+        CrearNuevaGen(panal, panal);
     }
 
     public void GrafoAbeja(List<Abeja> pPanal){
