@@ -45,6 +45,8 @@ public class ControllerArchivos {
     }
 
     public void escribirArchivoInformacionGeneraciones(ArrayList<ArrayList<Flor>> flores, ArrayList<ArrayList<Abeja>> abejas) throws IOException {
+        System.out.println(abejas.size());
+        System.out.println(abejas.get(0).size());
         int simAct = archivoNumSimulacion();
         FileWriter fileWriter = new FileWriter("src/ARCHIVOS/Generaciones_simulacionesNumero_"+ simAct +".txt");
         PrintWriter printWriter = new PrintWriter(fileWriter);
@@ -71,7 +73,7 @@ public class ControllerArchivos {
             printWriter.println("¡");
             for (Abeja abeja : gen) {
                 printWriter.println(abeja.getID() + "~" + abeja.getPadres().get(0) + "~" + abeja.getPadres().get(1)
-                        + "~" + abeja.getAdapatablidad() + "~" + abeja.getCromosomas() + "~" + abeja.getFlor().getColor() + "~"
+                        + "~" + abeja.getPuntaje() + "~" + abeja.getCromosomas() + "~" + abeja.getFlor().getColor() + "~"
                         + abeja.getDireccionFav() + "~" + abeja.getBusqueda().getAnguloDesviacion() + "~" + abeja.getBusqueda().getDistanciaMaxima()
                         + "~" + abeja.getBusqueda().getRecorrido().isPuntoInicio() + "~" + abeja.getBusqueda().getRecorrido().getOrden());
             }
@@ -161,7 +163,7 @@ public class ControllerArchivos {
                             Abeja abeja = new Abeja();
                             abeja.setID(Integer.parseInt(caract[0]));
                             abeja.setPadres(new ArrayList<>(Arrays.asList(Integer.parseInt(caract[1]), Integer.parseInt(caract[2]))));
-                            abeja.setAdapatablidad(Float.parseFloat(caract[3]));
+                            abeja.setPuntaje(Double.parseDouble(caract[3]));
                             String crom = caract[4];
                             crom = crom.replace("[", "");
                             crom = crom.replace("]", "");

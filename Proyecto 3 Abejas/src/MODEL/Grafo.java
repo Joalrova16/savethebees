@@ -2,7 +2,8 @@ package MODEL;
 import java.util.ArrayList;
 import java.util.List;
 public class Grafo {
-    public List<Nodo> nodos;
+    public ArrayList<Nodo> nodos=new ArrayList<>();
+
     public void insertar(Nodo pNodo1){
             nodos.add(pNodo1);
     }
@@ -21,10 +22,13 @@ public class Grafo {
         return false;
     }
     public Nodo BuscarNodo(Flor pFlor){
+
+        Nodo nodoAux=new Nodo();
         for(Nodo nodo:nodos){
             if(nodo.getFlor()==pFlor){
-                return nodo;
+                nodoAux=nodo;
             }
         }
+        return nodoAux;
     }
 }

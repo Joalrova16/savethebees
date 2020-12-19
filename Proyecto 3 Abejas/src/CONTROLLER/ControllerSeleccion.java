@@ -51,10 +51,10 @@ public class ControllerSeleccion {
         Abeja abejaHija1 = codificar.decodificarAbeja(hijo1);
         Abeja abejaHija2 = codificar.decodificarAbeja(hijo2);
 
-        abeja1.setPadres(new ArrayList<>(Arrays.asList(abeja1.getID(), abeja2.getID())));
-        abeja1.setCromosomas(hijo1);
-        abeja2.setPadres(new ArrayList<>(Arrays.asList(abeja1.getID(), abeja2.getID())));
-        abeja2.setCromosomas(hijo2);
+        abejaHija1.setPadres(new ArrayList<>(Arrays.asList(abeja1.getID(), abeja2.getID())));
+        abejaHija1.setCromosomas(hijo1);
+        abejaHija2.setPadres(new ArrayList<>(Arrays.asList(abeja1.getID(), abeja2.getID())));
+        abejaHija2.setCromosomas(hijo2);
 
         abejasNuevas.add(abejaHija1);
         abejasNuevas.add(abejaHija2);

@@ -16,8 +16,8 @@ public class Abeja {
     private int ID;
 
     private ArrayList<Color> polen ;
-    private float kilometraje=0;
-    private float puntaje;
+    private double kilometraje=0;
+    private double puntaje=0;
 
 
 
@@ -100,19 +100,19 @@ public class Abeja {
         this.busqueda = busqueda;
     }
 
-    public float getkilometraje() {
+    public double getkilometraje() {
         return kilometraje;
     }
 
-    public void setkilometraje(float kl) {
+    public void setkilometraje(double kl) {
         this.kilometraje = kl;
     }
 
-    public float getPuntaje() {
+    public double getPuntaje() {
         return puntaje;
     }
 
-    public void setPuntaje(float kl) {
+    public void setPuntaje(double kl) {
         this.puntaje = kl;
     }
 

@@ -1,14 +1,10 @@
 package MODEL;
 
 public class Arco {
-    private Nodo origen;
-    private Nodo destino;
+    private Nodo origen=new Nodo();
+    private Nodo destino=new Nodo();;
     private double distancia;
-    public Arco(){
-        this.origen = null;
-        this.destino = null;
-        this.distancia = 0;
-    }
+
     public Arco(Nodo pOrigen, Nodo pDestino, double pDistancia) {
         this.origen = pOrigen;
         this.destino = pDestino;
