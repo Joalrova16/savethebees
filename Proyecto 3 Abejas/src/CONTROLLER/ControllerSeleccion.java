@@ -116,7 +116,7 @@ public class ControllerSeleccion {
                     x = random.nextInt(50);
                     y = random.nextInt(100);
                 }
-
+                flor.setId(((y-1)*50+x));
                 flor.setPunto(new ArrayList<>(Arrays.asList(x,y)));
             }
             nuevas.add(cambiarFlor(flor));
