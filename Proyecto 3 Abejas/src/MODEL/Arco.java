@@ -2,10 +2,10 @@ package MODEL;
 
 public class Arco {
     private Nodo origen=new Nodo();
-    private Nodo destino=new Nodo();;
+    private int destino=0;;
     private double distancia;
 
-    public Arco(Nodo pOrigen, Nodo pDestino, double pDistancia) {
+    public Arco(Nodo pOrigen, int pDestino, double pDistancia) {
         this.origen = pOrigen;
         this.destino = pDestino;
         this.distancia = pDistancia;
@@ -20,11 +20,11 @@ public class Arco {
         this.origen = pOrigen;
     }
 
-    public Nodo getDestino() {
+    public int getDestino() {
         return destino;
     }
 
-    public void setDestino(Nodo pDestino) {
+    public void setDestino(int pDestino) {
         this.destino = pDestino;
     }
 
