@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main2 {
 
     public static void main(String[] args) throws IOException {
-        int CantidadFlores=1000;
+        int CantidadFlores=500;
         int CantidadAbejas=10;
         ControllerNaturaleza naturaleza=ControllerNaturaleza.getInstance();
         naturaleza.Simulacion(CantidadFlores,CantidadAbejas);

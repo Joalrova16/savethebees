@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
@@ -182,7 +183,8 @@ public class ControllerView {
             }
             madreL.setText("Abeja " + abeja.getPadres().get(0));
             padreL.setText("Abeja " + abeja.getPadres().get(1));
-            adaptabilidadL.setText(abeja.getAdapatablidad() + "%");
+            DecimalFormat nombre=new DecimalFormat("#.00");
+            adaptabilidadL.setText(nombre.format(abeja.getPuntaje()) + " puntos");
             String crom = "";
             for(Integer c: abeja.getCromosomas()){
                 crom = crom + c;

@@ -10,8 +10,8 @@ import java.util.Random;
 public class ControllerNaturaleza {
     final float KmXPolen = 10;
     final int repeticiones =10;
-    final int PesoColorFav=10;
-    final int SerFlor=5;
+    final double PesoColorFav=0.10;
+    final double SerFlor=0.05;
     private Grafo grafo;
     ArrayList<Abeja> Panal=new ArrayList<>();
     ArrayList<Flor> Campo=new ArrayList<>();
@@ -159,9 +159,20 @@ public class ControllerNaturaleza {
         while (contRepeticiones!=repeticiones){
             GrafoAbeja();
             adaptabilidad();
-            generacionesAbejas.add(Panal);
+            ArrayList<Abeja> pPanal=new ArrayList<>();
+            for (Abeja pAbeja:Panal){
+                pPanal.add(pAbeja);
+            }
+            generacionesAbejas.add(pPanal);
             generacionesCampoFlores.add(Campo);
             contRepeticiones++;
+
+        }
+
+        for(ArrayList<Flor>florecitas:generacionesCampoFlores){
+            for(Flor florecita:florecitas){
+                System.out.println(florecita.getPolen().size()+" "+florecita.getPunto());
+            }
 
         }
     }
@@ -308,16 +319,16 @@ public class ControllerNaturaleza {
                         double peso1 = distanciaFlor;
                         double peso2 = distanciaFlor;
                         if (abejita.getFlor().getColor() == nodo.getFlor().getColor()) {
-                            peso1 = peso1 - PesoColorFav;
+                            peso1 = peso1-(peso1 * PesoColorFav);
                         }
                         if (abejita.getFlor().getColor() == nodoAux.getFlor().getColor()) {
-                            peso2 = peso2 - PesoColorFav;
+                            peso2 = peso2 -(peso2* PesoColorFav);
                         }
                         if (nodo.getFlor().getPunto() != Centro) {
-                            peso1 = peso1 - SerFlor;
+                            peso1 = peso1-(peso1 *SerFlor);
                         }
                         if (nodoAux.getFlor().getPunto() != Centro) {
-                            peso2 = peso2 - SerFlor;
+                            peso2 = peso2 -(peso2* SerFlor);
                         }
                         Nodo nodo1;
                         Nodo nodo2;
@@ -351,17 +362,21 @@ public class ControllerNaturaleza {
                         while (nodoAct.getFlor().getId() != nodoFinal.getFlor().getId()) {
                             nodoAct.checkeado = true;
                             while (nodoAct.getArcos().size() - 1!= indiceArco ) {
-                                if (nodoAct.getArcos().get(indiceArco).getDistancia() < peso && !grafo.BuscarNodo(nodoAct.getArcos().get(indiceArco).getDestino()).checkeado) {
+                                if (nodoAct.getArcos().get(indiceArco).getDistancia() < peso && !(grafo.BuscarNodo(nodoAct.getArcos().get(indiceArco).getDestino()).checkeado)) {
                                     indiceAfinal = indiceArco;
                                     peso = nodoAct.getArcos().get(indiceArco).getDistancia();
                                 }
                                 indiceArco++;
                             }
                             nodoAct=grafo.BuscarNodo(nodoAct.getArcos().get(indiceArco).getDestino());
+
                             abejita.getPolen().add(nodoAct.getFlor().getColor());
                             abejita.setkilometraje(abejita.getkilometraje()+nodoAct.getArcos().get(0).getDistancia());
+                            Panal.get(Panal.indexOf(abejita)).setkilometraje(abejita.getkilometraje()+nodoAct.getArcos().get(0).getDistancia());
                             for (Color polen : abejita.getPolen()) {
-                                nodoAct.getFlor().getPolen().add(polen);
+                                ArrayList<Color> Colores=Campo.get(Campo.indexOf(nodoAct.getFlor())).getPolen();
+                                Colores.add(polen);
+                                Campo.get(Campo.indexOf(nodoAct.getFlor())).setPolen(Colores);
                             }
 
                         }
@@ -378,9 +393,11 @@ public class ControllerNaturaleza {
                             for (Color polen : abejita.getPolen()) {
                                 nodoAct.getFlor().getPolen().add(polen);
                             }
-                            nodoAct.checkeado = true;
+
+                            grafo.BuscarNodo(nodoAct.getFlor().getId()).checkeado=true;
+
                             while (nodoAct.getArcos().size()- 1 != indiceArco ) {
-                                if (nodoAct.getArcos().get(indiceArco).getDistancia() < peso && !grafo.BuscarNodo(nodoAct.getArcos().get(indiceArco).getDestino()).checkeado) {
+                                if (nodoAct.getArcos().get(indiceArco).getDistancia() < peso && !(grafo.BuscarNodo(nodoAct.getArcos().get(indiceArco).getDestino()).checkeado)) {
                                     indiceAfinal = indiceArco;
                                     peso = nodoAct.getArcos().get(indiceArco).getDistancia();
                                 }
@@ -389,7 +406,13 @@ public class ControllerNaturaleza {
                             indiceArco=0;
                             nodoAct = grafo.BuscarNodo(nodoAct.getArcos().get(indiceArco).getDestino());
                             abejita.setkilometraje(abejita.getkilometraje()+nodoAct.getArcos().get(0).getDistancia());
-
+                            for (Color polen : abejita.getPolen()) {
+                                if(nodoAct.getFlor().getPunto()!=Centro){
+                                    ArrayList<Color> Colores=Campo.get(Campo.indexOf(nodoAct.getFlor())).getPolen();
+                                    Colores.add(polen);
+                                    Campo.get(Campo.indexOf(nodoAct.getFlor())).setPolen(Colores);
+                                }
+                            }
 
                         }
 
@@ -397,6 +420,7 @@ public class ControllerNaturaleza {
 
                 }
             }
+            System.out.println("kilometraje"+abejita.getkilometraje());
         }
 
 
