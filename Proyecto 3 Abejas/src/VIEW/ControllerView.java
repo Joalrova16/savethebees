@@ -191,7 +191,8 @@ public class ControllerView {
             }
             cromoL.setText(crom);
             String color = "";
-            switch (abeja.getFlor().getColor()){
+            MODEL.Color color1 = abeja.getFlor().getColor();
+            switch (color1){
                 case YELLOW: color = "Amarillo"; break;
                 case VIOLET: color = "Morado"; break;
                 case WHITE: color = "Blanco"; break;

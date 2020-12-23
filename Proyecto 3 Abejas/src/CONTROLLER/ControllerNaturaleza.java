@@ -151,9 +151,10 @@ public class ControllerNaturaleza {
         controllerCodificar.setListas();
         ArrayList<Abeja> poblacionInicialAbejas = poblacionInicialAbejas(cantAbejas);
         ArrayList<Flor> poblacionInicialFlores = poblacionInicialFlores(cantFlores);
+        generacionesAbejas.add(poblacionInicialAbejas);
         Panal=poblacionInicialAbejas;
         Campo=poblacionInicialFlores;
-        generacionesAbejas.add(poblacionInicialAbejas);
+
         generacionesCampoFlores.add(poblacionInicialFlores);
         int contRepeticiones=0;
         while (contRepeticiones!=repeticiones){
@@ -168,21 +169,10 @@ public class ControllerNaturaleza {
             contRepeticiones++;
 
         }
-
-        for(ArrayList<Flor>florecitas:generacionesCampoFlores){
-            for(Flor florecita:florecitas){
-                System.out.println(florecita.getPolen().size()+" "+florecita.getPunto());
-            }
-
-        }
     }
 
     public void GrafoAbeja(){
 
-        for(Abeja jj:Panal){
-            System.out.println(jj.getID()+" "+jj.getFlor().getColor()+" "+jj.getBusqueda().getDistanciaMaxima()+" ");
-
-        }
 
         for(Abeja abejita :Panal) {
             grafo = new Grafo();
@@ -300,7 +290,7 @@ public class ControllerNaturaleza {
 
 
             }
-            System.out.println(grafo.nodos);
+
             if (grafo.nodos.size() != 1) {
 
             //for mierda in gafo
@@ -420,7 +410,6 @@ public class ControllerNaturaleza {
 
                 }
             }
-            System.out.println("kilometraje"+abejita.getkilometraje());
         }
 
 
@@ -459,9 +448,7 @@ public class ControllerNaturaleza {
     public void adaptabilidad() {
         double puntajeTotal = 0;
         double puntAnt = 0;
-        System.out.println("\n\n");
         for (Abeja abeja : Panal) {
-            //System.out.println(abeja.getkilometraje()+"bandera");
             if(abeja.getkilometraje()>1){
                 puntajeTotal = puntajeTotal + (KmXPolen * abeja.getPolen().size() / abeja.getkilometraje());
                 abeja.setPuntaje(KmXPolen * abeja.getPolen().size() / abeja.getkilometraje());

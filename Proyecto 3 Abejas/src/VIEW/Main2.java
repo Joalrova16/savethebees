@@ -9,8 +9,8 @@ import java.io.IOException;
 public class Main2 {
 
     public static void main(String[] args) throws IOException {
-        int CantidadFlores=500;
-        int CantidadAbejas=10;
+        int CantidadFlores=1500;
+        int CantidadAbejas=20;
         ControllerNaturaleza naturaleza=ControllerNaturaleza.getInstance();
         naturaleza.Simulacion(CantidadFlores,CantidadAbejas);
         ControllerArchivos archivos=ControllerArchivos.getInstance();

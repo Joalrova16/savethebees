@@ -45,8 +45,6 @@ public class ControllerArchivos {
     }
 
     public void escribirArchivoInformacionGeneraciones(ArrayList<ArrayList<Flor>> flores, ArrayList<ArrayList<Abeja>> abejas) throws IOException {
-        System.out.println(abejas.size());
-        System.out.println(abejas.get(0).size());
         int simAct = archivoNumSimulacion();
         FileWriter fileWriter = new FileWriter("src/ARCHIVOS/Generaciones_simulacionesNumero_"+ simAct +".txt");
         PrintWriter printWriter = new PrintWriter(fileWriter);
@@ -193,20 +191,5 @@ public class ControllerArchivos {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        ControllerArchivos archivos = ControllerArchivos.getInstance();
-        ControllerNaturaleza naturaleza = new ControllerNaturaleza();
-        ControllerCodificar codificar = ControllerCodificar.getInstance();
-        ArrayList<ArrayList<Abeja>> abejas = new ArrayList<>();
-        ArrayList<ArrayList<Flor>> flores = new ArrayList<>();
-        codificar.setListas();
-        for(int i = 0; i<5; i++){
-            abejas.add(naturaleza.poblacionInicialAbejas(10));
-            flores.add(naturaleza.poblacionInicialFlores(50));
-        }
-        archivos.escribirArchivoInformacionGeneraciones(flores, abejas);
-//        archivos.leerArchivoGeneraciones(0);
     }
 }

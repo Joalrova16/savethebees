@@ -1,180 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 
-<Pane fx:id="ContenedorPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER.ControllerView">
+<Pane fx:id="ventanaPrincipal" prefHeight="457.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.ControllerView">
    <children>
-      <Pane fx:id="flores" layoutX="-4.0" prefHeight="387.0" prefWidth="745.0" visible="false">
-         <children>
-            <Label layoutX="303.0" layoutY="10.0" text="Campo de flores">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="203.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="237.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="271.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="305.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="339.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="373.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="407.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="441.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="475.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="309.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="341.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="181.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="149.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutX="509.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
-            <Button fx:id="cerrarB3" layoutX="699.0" layoutY="12.0" mnemonicParsing="false" onAction="#cerrar" text="x" />
-            <Button fx:id="atras" layoutX="672.0" layoutY="342.0" mnemonicParsing="false" onAction="#atrasFlores" text="Atrás" />
-         </children>
-      </Pane>
-      <Pane fx:id="caractAbeja" prefHeight="387.0" prefWidth="737.0" visible="false">
-         <children>
-            <Label layoutX="272.0" layoutY="44.0" prefHeight="31.0" prefWidth="210.0" text="Características Abeja">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Button fx:id="cerrarB2" layoutX="697.0" layoutY="12.0" mnemonicParsing="false" onAction="#cerrar" text="x" />
-            <Button fx:id="atras1" layoutX="665.0" layoutY="342.0" mnemonicParsing="false" onAction="#atrasAbCaract" text="Atrás" />
-         </children>
-      </Pane>
-      <Pane fx:id="InformacionGeneracion" prefHeight="387.0" prefWidth="737.0" visible="false">
-         <children>
-            <Label layoutX="311.0" layoutY="20.0" text="Abejas">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Label>
-            <Label layoutX="293.0" layoutY="79.0" text="Generación # 10">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ComboBox layoutX="118.0" layoutY="176.0" prefHeight="31.0" prefWidth="150.0" />
-            <Label layoutX="118.0" layoutY="140.0" prefHeight="27.0" prefWidth="174.0" text="Seleccione una abeja">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="seleccionarAbeja" layoutX="118.0" layoutY="248.0" mnemonicParsing="false" onAction="#seleccionarGeneracion" prefHeight="31.0" prefWidth="150.0" text="Seleccionar">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="cerrarB1" layoutX="696.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrar" text="x" />
-            <Button fx:id="atras11" layoutX="669.0" layoutY="342.0" mnemonicParsing="false" onAction="#atrasAbejas" text="Atrás" />
-         </children>
-      </Pane>
-      <Pane fx:id="ventanaPrincipal" layoutX="-4.0" layoutY="-4.0" prefHeight="395.0" prefWidth="745.0">
-         <children>
-            <Label layoutX="239.0" layoutY="60.0" text="EVOLUCIÓN ABEJAS">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <Button layoutX="298.0" layoutY="268.0" mnemonicParsing="false" onAction="#seleccionar" prefHeight="45.0" prefWidth="150.0" text="VER" />
-            <RadioButton fx:id="radioAbeja" layoutX="476.0" layoutY="155.0" mnemonicParsing="false" onAction="#soloUnoA" prefHeight="28.0" prefWidth="114.0" text="Abejas" />
-            <RadioButton fx:id="radioFlor" layoutX="476.0" layoutY="200.0" mnemonicParsing="false" onAction="#soloUnoF" prefHeight="28.0" prefWidth="92.0" text="Flores" />
-            <ComboBox layoutX="158.0" layoutY="169.0" prefHeight="31.0" prefWidth="174.0" promptText="Generaciones" />
-            <Button fx:id="cerrarB" layoutX="704.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrar" text="x" />
-         </children>
-      </Pane>
+      <ImageView fitHeight="674.0" fitWidth="960.0" layoutX="-91.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/fondo.gif" />
+         </image>
+         <effect>
+            <BoxBlur>
+               <input>
+                  <DropShadow />
+               </input>
+            </BoxBlur>
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="233.0" fitWidth="531.0" layoutX="182.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/caption.png" />
+         </image>
+         <effect>
+            <Lighting specularConstant="0.86" surfaceScale="3.57">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></ImageView>
+      <Button layoutX="314.0" layoutY="386.0" mnemonicParsing="false" onAction="#seleccionar" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: CHARTREUSE;" text="VER" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Ravie" size="21.0" />
+         </font>
+         <effect>
+            <InnerShadow color="#ab6464" height="8.56" radius="7.6675" width="24.11">
+               <input>
+                  <Lighting specularConstant="1.03" specularExponent="11.22" surfaceScale="4.3">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#eeeeee" />
+                     </light>
+                  </Lighting>
+               </input></InnerShadow>
+         </effect></Button>
+      <RadioButton fx:id="radioAbeja" layoutX="529.0" layoutY="162.0" mnemonicParsing="false" onAction="#soloUnoA" prefHeight="28.0" prefWidth="140.0" text="Abejas" textFill="#008a40">
+         <font>
+            <Font name="Ravie" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow color="#e88b8b" height="14.78" radius="3.7799999999999994" width="2.34" />
+         </effect>
+      </RadioButton>
+      <RadioButton fx:id="radioFlor" layoutX="151.0" layoutY="162.0" mnemonicParsing="false" onAction="#soloUnoF" prefHeight="47.0" prefWidth="130.0" text="Flores" textFill="RED">
+         <font>
+            <Font name="Ravie" size="20.0" />
+         </font>
+         <effect>
+            <DropShadow color="#008337" />
+         </effect>
+      </RadioButton>
+      <ImageView fitHeight="136.0" fitWidth="114.0" layoutX="670.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true" rotate="88.7">
+         <image>
+            <Image url="@../Images/adorno1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="136.0" fitWidth="114.0" layoutX="-15.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../Images/adorno1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="708.0" layoutY="49.0" text="SALIR" textFill="#e40e0e">
+         <font>
+            <Font name="Ravie" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="47.0" fitWidth="62.0" layoutX="712.0" layoutY="23.0" onMouseClicked="#cerrar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/salir.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="simulacionesCB" layoutX="281.0" layoutY="300.0" prefHeight="31.0" prefWidth="231.0" promptText="Sin seleccionar" style="-fx-background-color: TOMATO;">
+         <effect>
+            <Lighting diffuseConstant="1.37" specularConstant="0.96" specularExponent="15.12" surfaceScale="2.96">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </ComboBox>
+      <Label layoutX="245.0" layoutY="268.0" text="SIMULCIONES HECHAS">
+         <font>
+            <Font name="Ravie" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#20b920" />
+                  <Stop color="#bc1616" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="258.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" rotate="-15.9">
+         <effect>
+            <DropShadow color="#d35858" spread="0.11" />
+         </effect>
+         <image>
+            <Image url="@../Images/abejaInicio.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="47.0" layoutX="230.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" rotate="36.9">
+         <effect>
+            <DropShadow color="#d35858" spread="0.11" />
+         </effect>
+         <image>
+            <Image url="@../Images/abejaInicio.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="74.0" layoutX="355.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/abejaInicio.png" />
+         </image>
+         <effect>
+            <DropShadow color="#d35858" spread="0.11" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="47.0" layoutX="529.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" rotate="-26.6">
+         <effect>
+            <DropShadow color="#d35858" spread="0.11" />
+         </effect>
+         <image>
+            <Image url="@../Images/abejaInicio.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="505.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" rotate="18.4">
+         <effect>
+            <DropShadow color="#d35858" spread="0.11" />
+         </effect>
+         <image>
+            <Image url="@../Images/abejaInicio.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
